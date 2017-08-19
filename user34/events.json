@@ -1,0 +1,1709 @@
+[
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 1,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "dd7f89e3c23720bd8d9b4864ac07e874886ba9b0"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 2,
+        "parameters": {
+            "URL": {
+                "URL": "http://corvallis.craigslist.org/search/apa?query=No+pets"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 3,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "dd7f89e3c23720bd8d9b4864ac07e874886ba9b0"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Henry Howard",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "44d44f559a9b41c2d75bf503f1c52470f363a987"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 4,
+        "parameters": {
+            "URL": {
+                "URL": "http://corvallis.craigslist.org/search/apa?query=No+pets"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 5,
+        "parameters": {
+            "URL": {
+                "URL": "http://corvallis.craigslist.org/apa/5764401008.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 6,
+        "parameters": {
+            "URL": {
+                "URL": "http://corvallis.craigslist.org/apa/5668107079.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 7,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://corvallis.craigslist.org/apa/5668107079.html",
+                "payloadBlobURN": "cp8:ffx:2",
+                "windowTitle": "======= Studio apartment by OSU ======== - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:2",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 8,
+        "parameters": {
+            "URL": {
+                "URL": "http://corvallis.craigslist.org/apa/5748828285.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 9,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://corvallis.craigslist.org/apa/5748828285.html",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "1 BR/1 BA apartment RIGHT next to campus - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 10,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Henry Howard",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "44d44f559a9b41c2d75bf503f1c52470f363a987"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "START",
+        "sequenceNumber": 11,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:6",
+                "EmailID": "70b8704cf711427297d682be73c49177450f2f05"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 12,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/11679/homemade-mac-and-cheese/"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 13,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:6",
+                "EmailID": "70b8704cf711427297d682be73c49177450f2f05"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Henry Howard",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:7",
+                "EmailID": "c716a00a933c5b3eac5f848d70034fff64e715a3"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 14,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/11679/homemade-mac-and-cheese/",
+                "payloadBlobURN": "cp8:ffx:9",
+                "windowTitle": "Homemade Mac and Cheese Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:9",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 15,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/233603/bacon-wrapped-jalapeno-poppers/"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 16,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/233603/bacon-wrapped-jalapeno-poppers/",
+                "payloadBlobURN": "cp8:ffx:10",
+                "windowTitle": "Bacon-Wrapped Jalapeno Poppers Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:10",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 17,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=fast+and+easy+recipes&ie=utf-8&oe=utf-8#q=mac+n+cheese+recipes"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 18,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.google.com/search?q=fast+and+easy+recipes&ie=utf-8&oe=utf-8#q=mac+n+cheese+recipes",
+                "payloadBlobURN": "cp8:ffx:11",
+                "windowTitle": "Classic Hot Wings Recipe : Ree Drummond : Food Network - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:11",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 19,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.google.com/search?q=fast+and+easy+recipes&ie=utf-8&oe=utf-8#q=mac+n+cheese+recipes",
+                "payloadBlobURN": "cp8:ffx:12",
+                "windowTitle": "Classic Hot Wings Recipe : Ree Drummond : Food Network - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:12",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 20,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.foodnetwork.com/recipes/ree-drummond/classic-hot-wings-recipe.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 21,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.foodnetwork.com/recipes/ree-drummond/classic-hot-wings-recipe.html",
+                "payloadBlobURN": "cp8:ffx:13",
+                "windowTitle": "Classic Hot Wings Recipe : Ree Drummond : Food Network - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:13",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 22,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=thai+salad+rolls&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 23,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 24,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe.html",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "Guacamole Recipe : Alton Brown : Food Network - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 25,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Henry Howard",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:7",
+                "EmailID": "c716a00a933c5b3eac5f848d70034fff64e715a3"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "END",
+        "sequenceNumber": 26,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Re: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:8",
+                "EmailID": "a547c06d6f61bd701695b48bdc1525993ea2d514"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "START",
+        "sequenceNumber": 27,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:15",
+                "EmailID": "ec6746cdd880cfc2a2a075ed0599bf46226727a3"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 28,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=978-1-672-32946-3&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 29,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.half.ebay.com/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 30,
+        "parameters": {
+            "URL": {
+                "URL": "http://product.half.ebay.com/Engineering-Economic-Analysis-by-Ted-G-Eschenbach-Donald-G-Newnan-and-Jerome-P-Lavelle-2013-Hardcover/172519605&cpid=5000061065018"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 31,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=978-1-672-32946-3&ie=utf-8&oe=utf-8#tbm=shop&q=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN:+978-1-672-32946-3"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 32,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.barnesandnoble.com/w/linux-kernel-development-robert-love/1100508926?ean=9780672329463&pcta=n&st=PLA&sid=BNB_DRS_Core+Shopping+Textbooks_00000000&2sid=Google_&sourceId=PLGoP148&k_clickid=3x148"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 33,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:15",
+                "EmailID": "ec6746cdd880cfc2a2a075ed0599bf46226727a3"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Henry Howard",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:16",
+                "EmailID": "57f9f84637209ccbdff45b065d506f1ba2b2ec9c"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 34,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.barnesandnoble.com/w/linux-kernel-development-robert-love/1100508926?ean=9780672329463&pcta=n&st=PLA&sid=BNB_DRS_Core+Shopping+Textbooks_00000000&2sid=Google_&sourceId=PLGoP148&k_clickid=3x148",
+                "payloadBlobURN": "cp8:ffx:17",
+                "windowTitle": "Linux Kernel Development / Edition 3 by Robert Love | 9780672329463 | Paperback | Barnes & Noble - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:16",
+                "payloadBlobURN": "cp8:ffx:17",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 35,
+        "parameters": {
+            "URL": {
+                "URL": "http://product.half.ebay.com/Engineering-Economic-Analysis-by-Ted-G-Eschenbach-Donald-G-Newnan-and-Jerome-P-Lavelle-2013-Hardcover/172519605&cpid=5000061065018"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 36,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://product.half.ebay.com/Engineering-Economic-Analysis-by-Ted-G-Eschenbach-Donald-G-Newnan-and-Jerome-P-Lavelle-2013-Hardcover/172519605&cpid=5000061065018",
+                "payloadBlobURN": "cp8:ffx:18",
+                "windowTitle": "Half.com: Engineering Economic Analysis by Ted G. Eschenbach, Donald G. Newnan and Jerome P. Lavelle (2013, Hardcover)(9780199339273): Ted G. Eschenbach: Books - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:16",
+                "payloadBlobURN": "cp8:ffx:18",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "END",
+        "sequenceNumber": 37,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Henry Howard",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:16",
+                "EmailID": "57f9f84637209ccbdff45b065d506f1ba2b2ec9c"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "START",
+        "sequenceNumber": 38,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:19",
+                "EmailID": "c9c0ad8fbcb29a259b559057a7b943315d4485d8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 39,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=best+action+drama+television+series&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 40,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:19",
+                "EmailID": "c9c0ad8fbcb29a259b559057a7b943315d4485d8"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Henry Howard",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:20",
+                "EmailID": "93a484ecded3b4b7d841bc53c08175f9db75b4c5"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 41,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/search/title?genres=action&title_type=tv_series&sort=moviemeter,asc"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 42,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.imdb.com/search/title?genres=action&title_type=tv_series&sort=moviemeter,asc",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:20",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "END",
+        "sequenceNumber": 43,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Henry Howard",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:20",
+                "EmailID": "93a484ecded3b4b7d841bc53c08175f9db75b4c5"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "START",
+        "sequenceNumber": 44,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:21",
+                "EmailID": "84688a8ee06789e25d88bc2b17d3d14f4b9540e5"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 45,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.backcountry.com/basin-and-range-bonneville-fitness-short-womens?skid=BNG001U-BLA-XS&ti=UExQIFJ1bGUgQmFzZWQ6QmFja2NvdW50cnkgRXhjbHVzaXZlcyA6MToxMzo="
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 46,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:21",
+                "EmailID": "84688a8ee06789e25d88bc2b17d3d14f4b9540e5"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Henry Howard",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:22",
+                "EmailID": "65fccab0ba5ecdddebd87ff20265fe570fe01497"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 47,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.backcountry.com/basin-and-range-bonneville-fitness-short-womens?skid=BNG001U-BLA-XS&ti=UExQIFJ1bGUgQmFzZWQ6QmFja2NvdW50cnkgRXhjbHVzaXZlcyA6MToxMzo=",
+                "payloadBlobURN": "cp8:ffx:23",
+                "windowTitle": "Basin and Range Bonneville Fitness Short - Women's | Backcountry.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:22",
+                "payloadBlobURN": "cp8:ffx:23",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "END",
+        "sequenceNumber": 48,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Henry Howard",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:22",
+                "EmailID": "65fccab0ba5ecdddebd87ff20265fe570fe01497"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "START",
+        "sequenceNumber": 49,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:24",
+                "EmailID": "3071e3ce7a0a2f6a8c7daf1658ac2bc5c4e933d5"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 50,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/drug-interactions/diazepam,valium.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 51,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 52,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:24",
+                "EmailID": "3071e3ce7a0a2f6a8c7daf1658ac2bc5c4e933d5"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Henry Howard",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "8833789db5a6cbbc609a9e0ac4f372de27e7b861"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 53,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html",
+                "payloadBlobURN": "cp8:ffx:27",
+                "windowTitle": "Adderall and Valium Drug Interactions - Drugs.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:25",
+                "payloadBlobURN": "cp8:ffx:27",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 54,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=advise+for+taking+aderall&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 55,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/tips/adderall-patient-tips"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 56,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.webmd.com/drugs/2/drug-6306/diazepam-oral/details/list-interaction-food"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 57,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.webmd.com/drugs/2/drug-6306/diazepam-oral/details/list-interaction-food",
+                "payloadBlobURN": "cp8:ffx:28",
+                "windowTitle": "Foods to Avoid When Taking diazepam oral - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:25",
+                "payloadBlobURN": "cp8:ffx:28",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 58,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/tips/adderall-patient-tips"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 59,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.webmd.com/drugs/2/drug-6306/diazepam-oral/details/list-interaction-food"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 60,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Henry Howard",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "8833789db5a6cbbc609a9e0ac4f372de27e7b861"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "END",
+        "sequenceNumber": 61,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:26",
+                "EmailID": "a9c58e179f6996a63dd61ec393b6c713e42a5bf5"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "START",
+        "sequenceNumber": 62,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:29",
+                "EmailID": "c4f2fa6b3cdf6566c19d41d5a32173b36d1a4684"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 63,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=computer+engineering&l=Corvallis%2C+OR"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 64,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:29",
+                "EmailID": "c4f2fa6b3cdf6566c19d41d5a32173b36d1a4684"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Henry Howard",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "d3d9a71d77ae0072bc0c341e284fc7018ec70ffe"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 65,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=computer+engineering&l=Corvallis,+OR&explvl=entry_level"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 66,
+        "parameters": {
+            "URL": {
+                "URL": "https://us-amazon.icims.com/jobs/408203/software-development-engineer/job?in_iframe=1?mode=job&iis=Job+Posting&iisn=Indeed+(Paid+Sponsored+Posting)"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 67,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://us-amazon.icims.com/jobs/408203/software-development-engineer/job?in_iframe=1?mode=job&iis=Job+Posting&iisn=Indeed+(Paid+Sponsored+Posting)",
+                "payloadBlobURN": "cp8:ffx:32",
+                "windowTitle": "Amazon.jobs:Software Development Engineer - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:30",
+                "payloadBlobURN": "cp8:ffx:32",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 68,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://us-amazon.icims.com/jobs/408203/software-development-engineer/job?in_iframe=1?mode=job&iis=Job+Posting&iisn=Indeed+(Paid+Sponsored+Posting)",
+                "payloadBlobURN": "cp8:ffx:33",
+                "windowTitle": "Amazon.jobs:Software Development Engineer - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:30",
+                "payloadBlobURN": "cp8:ffx:33",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 69,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=computer+engineering&l=Corvallis,+OR&explvl=entry_level"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 70,
+        "parameters": {
+            "URL": {
+                "URL": "https://us-amazon.icims.com/jobs/387471/software-development-engineer/job?in_iframe=1?mode=job&iis=Job+Posting&iisn=Indeed+(Paid+Sponsored+Posting)"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 71,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://us-amazon.icims.com/jobs/387471/software-development-engineer/job?in_iframe=1?mode=job&iis=Job+Posting&iisn=Indeed+(Paid+Sponsored+Posting)",
+                "payloadBlobURN": "cp8:ffx:34",
+                "windowTitle": "Amazon.jobs:Software Development Engineer - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:30",
+                "payloadBlobURN": "cp8:ffx:34",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 72,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Henry Howard",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "d3d9a71d77ae0072bc0c341e284fc7018ec70ffe"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "END",
+        "sequenceNumber": 73,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:31",
+                "EmailID": "3069cbbb311f9254dd878565a629ed6e4e12691a"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 74,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:35",
+                "EmailID": "87b0e2358c6b5a4fd0afde41dfffd8e9686f96d2"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 75,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/Default.aspx?section=Course"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 76,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/GeneralSearch.aspx?searchin=HCDMNOS&searchstring=ST+314,,,"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 77,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 78,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:35",
+                "EmailID": "87b0e2358c6b5a4fd0afde41dfffd8e9686f96d2"
+            },
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Henry Howard",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "b7af952e925fcdefaddc765ea4171e1eb9927d97"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 79,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314",
+                "payloadBlobURN": "cp8:ffx:37",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:37",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 80,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 81,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201",
+                "payloadBlobURN": "cp8:ffx:38",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:38",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 82,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 83,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 84,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121",
+                "payloadBlobURN": "cp8:ffx:40",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:40",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 85,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 86,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111",
+                "payloadBlobURN": "cp8:ffx:41",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:41",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 87,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 88,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100",
+                "payloadBlobURN": "cp8:ffx:42",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:42",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 89,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Henry Howard",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "b7af952e925fcdefaddc765ea4171e1eb9927d97"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "START",
+        "sequenceNumber": 90,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:43",
+                "EmailID": "d4442ce6686dca45e8c89138e9055569d0e2a386"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 91,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Istanbul&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 92,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/alertswarnings.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 93,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Istanbul&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 94,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/alertswarnings.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 95,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/alertswarnings/turkey-travel-warning.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 96,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:43",
+                "EmailID": "d4442ce6686dca45e8c89138e9055569d0e2a386"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Henry Howard",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:44",
+                "EmailID": "0307fa72aef8bdd8d40f618c8374c7f4f67b030f"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 97,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://travel.state.gov/content/passports/en/alertswarnings/turkey-travel-warning.html",
+                "payloadBlobURN": "cp8:ffx:46",
+                "windowTitle": "Turkey Travel Warning - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:44",
+                "payloadBlobURN": "cp8:ffx:46",
+                "windowTitle": "Inbox - Henry.Howard@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 98,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/alertswarnings.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 99,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/country/greece.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 100,
+        "parameters": {
+            "URL": {
+                "URL": "https://en.wikipedia.org/wiki/Bulgaria%E2%80%93United_States_relations"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 101,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.tripadvisor.com/ShowTopic-g294446-i4584-k775034-Is_Albania_a_safe_place_to_visit-Tirana.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 102,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=greece+at+war+with+us+ally&ie=utf-8&oe=utf-8#q=albania+war+with+us+ally"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 103,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Henry Howard",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:44",
+                "EmailID": "0307fa72aef8bdd8d40f618c8374c7f4f67b030f"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "END",
+        "sequenceNumber": 104,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Henry Howard",
+                "From": "Davos Stark",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:45",
+                "EmailID": "37955be376e5549046504cfdad3b979dd3a3292b"
+            }
+        }
+    }
+]

@@ -1,0 +1,1456 @@
+[
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 1,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "cdf937975d7c44d23f50cf16f69f8d7d3a1f9393"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 2,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 3,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5791094160.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 4,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "cdf937975d7c44d23f50cf16f69f8d7d3a1f9393"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "56bb34723b3df6e32771a8363621baef0e6efc8a"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 5,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://corvallis.craigslist.org/apa/5791094160.html",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "???Single Studio - AVAILABLE NOW or RESERVE for FALL TERM~~~ - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 6,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "56bb34723b3df6e32771a8363621baef0e6efc8a"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 7,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:2",
+                "EmailID": "05c429162a0fbd2b0fe85c4c2c1b517f6b91f657"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "START",
+        "sequenceNumber": 8,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:6",
+                "EmailID": "4924d21017258c11de169b163be81a2b1604b724"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 9,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.huffingtonpost.com/2013/10/21/jello-shrimp-frosting-photos-reddit_n_4124713.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 10,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.reddit.com/r/food/comments/1nemai/my_grandmas_jello_recipe_from_the_1950s/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 11,
+        "parameters": {
+            "URL": {
+                "URL": "http://imgur.com/wJv6wGQ"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 12,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:6",
+                "EmailID": "4924d21017258c11de169b163be81a2b1604b724"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:7",
+                "EmailID": "d02c05cbc7766e1dc9183bc3b9af13bde41c4194"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 13,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://imgur.com/wJv6wGQ",
+                "payloadBlobURN": "cp8:ffx:9",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:9",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 14,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.reddit.com/r/food/comments/1nemai/my_grandmas_jello_recipe_from_the_1950s/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 15,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.huffingtonpost.com/2013/10/21/jello-shrimp-frosting-photos-reddit_n_4124713.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 16,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=worst+recipes+ever&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 17,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/12463/apple-crisp-iii/"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 18,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/12463/apple-crisp-iii/",
+                "payloadBlobURN": "cp8:ffx:10",
+                "windowTitle": "Apple Crisp III Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:7",
+                "payloadBlobURN": "cp8:ffx:10",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 19,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.mytaste.com/t/worst-on-allrecipes.html"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 20,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:7",
+                "EmailID": "d02c05cbc7766e1dc9183bc3b9af13bde41c4194"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "END",
+        "sequenceNumber": 21,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:8",
+                "EmailID": "f2ee105317f09c69f5c1d6bdd90a560ff6609886"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "START",
+        "sequenceNumber": 22,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:11",
+                "EmailID": "3818f9a04a04a89af4300237dd62b98dc87ef7d8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 23,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.chegg.com/cheap-textbooks"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 24,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:11",
+                "EmailID": "3818f9a04a04a89af4300237dd62b98dc87ef7d8"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:12",
+                "EmailID": "0c6dcf10ca8f02ecd3485b5a740dc5ad8ff017f6"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 25,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.chegg.com/cheap-textbooks",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:12",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 26,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.chegg.com/cheap-textbooks",
+                "payloadBlobURN": "cp8:ffx:15",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:12",
+                "payloadBlobURN": "cp8:ffx:15",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 27,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:12",
+                "EmailID": "0c6dcf10ca8f02ecd3485b5a740dc5ad8ff017f6"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "END",
+        "sequenceNumber": 28,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:13",
+                "EmailID": "3c646cfafd92ce38232a36a1f0827fbf0b99d059"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "START",
+        "sequenceNumber": 29,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:16",
+                "EmailID": "07f9c73d42c164a0ce63a01a74b773bdabd3dae0"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 30,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/find?ref_=nv_sr_fn&q=shrek&s=all"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 31,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:16",
+                "EmailID": "07f9c73d42c164a0ce63a01a74b773bdabd3dae0"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:17",
+                "EmailID": "f6d9480d16a06a589c48b74993f28b42313287f5"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 32,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.imdb.com/find?ref_=nv_sr_fn&q=shrek&s=all",
+                "payloadBlobURN": "cp8:ffx:19",
+                "windowTitle": "Shrek (2001) - IMDb - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:17",
+                "payloadBlobURN": "cp8:ffx:19",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 33,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/find?ref_=nv_sr_fn&q=shrek&s=all"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 34,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:17",
+                "EmailID": "f6d9480d16a06a589c48b74993f28b42313287f5"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "END",
+        "sequenceNumber": 35,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:18",
+                "EmailID": "caea17c40e32f6579d26abfd065ed4e822236011"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "START",
+        "sequenceNumber": 36,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:20",
+                "EmailID": "8ce9cc09a23a543415635644b9c52f2d838cd0f1"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 37,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=pink+harambe&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 38,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=pink+harambe&source=lnms&tbm=isch&sa=X&ved=0ahUKEwigmJrigaHPAhUK02MKHXXlADAQ_AUICSgC&biw=626&bih=890"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 39,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=pink+harambe&ie=utf-8&oe=utf-8#q=shirt+printing"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 40,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 41,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:20",
+                "EmailID": "8ce9cc09a23a543415635644b9c52f2d838cd0f1"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:21",
+                "EmailID": "87ae49f31d5b9431c2c1489162ec5134a2006720"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 42,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ",
+                "payloadBlobURN": "cp8:ffx:24",
+                "windowTitle": "Harambe Day Care Watching Kids since 2016 T-Shirt - TeeShirtPalace - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:21",
+                "payloadBlobURN": "cp8:ffx:24",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 43,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:21",
+                "EmailID": "87ae49f31d5b9431c2c1489162ec5134a2006720"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 44,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=pink+harambe&source=lnms&tbm=isch&sa=X&ved=0ahUKEwigmJrigaHPAhUK02MKHXXlADAQ_AUICSgC&biw=626&bih=890"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 45,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 46,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:22",
+                "EmailID": "fc541ea62c854903721bce7ed3ea065a967cb68a"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 47,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:22",
+                "EmailID": "fc541ea62c854903721bce7ed3ea065a967cb68a"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:23",
+                "EmailID": "1ba95e581c0f902ff3b1eca2eb41f3f7cbba530c"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 48,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "Harambe Day Care Watching Kids since 2016 T-Shirt - TeeShirtPalace - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:23",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "END",
+        "sequenceNumber": 49,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:23",
+                "EmailID": "1ba95e581c0f902ff3b1eca2eb41f3f7cbba530c"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "START",
+        "sequenceNumber": 50,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "751e8a6b7f75519009df4a78c4230bb89933e064"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 51,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 52,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "751e8a6b7f75519009df4a78c4230bb89933e064"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:26",
+                "EmailID": "2f1ef72089679e7c2f6e31febe3ac9a09868a83c"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 53,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html",
+                "payloadBlobURN": "cp8:ffx:28",
+                "windowTitle": "Adderall and Valium Drug Interactions - Drugs.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:26",
+                "payloadBlobURN": "cp8:ffx:28",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 54,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/answers/what-are-the-side-affects-taking-adderall-with-318830.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 55,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.quora.com/What-is-it-like-to-take-valium-and-Adderall-together"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 56,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:26",
+                "EmailID": "2f1ef72089679e7c2f6e31febe3ac9a09868a83c"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "END",
+        "sequenceNumber": 57,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Re: check on medication",
+                "BodyBlobURN": "cp8:eml:27",
+                "EmailID": "e5124a841a4f00b94315fd85cbd0e4addc28b06a"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "START",
+        "sequenceNumber": 58,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:29",
+                "EmailID": "735fef7f84125eb0e9c3b1be53203e691fac1a3f"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 59,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=computer+engineering&l=Corvallis%2C+OR"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 60,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/viewjob?jk=9f78fa99849eee11&q=computer+engineering&l=Corvallis%2C+OR&tk=1at6v1oh1b9bjeuu&from=web&advn=3165350209737823&sjdu=6R86uWk5S25yjXHkFSRtfxUiBstkBZ96vfx2CQhTyLaqpe5GfMmA1hErkoXqTH3oon0DBiBFdnAvMW8_pCkqu43PAedilYtUxxIyHg16vuU&pub=4a1b367933fd867b19b072952f68dceb"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 61,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:29",
+                "EmailID": "735fef7f84125eb0e9c3b1be53203e691fac1a3f"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "540c89b0653e77f4a45d99f00ed8e12a2ebc0b07"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 62,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.indeed.com/viewjob?jk=9f78fa99849eee11&q=computer+engineering&l=Corvallis%2C+OR&tk=1at6v1oh1b9bjeuu&from=web&advn=3165350209737823&sjdu=6R86uWk5S25yjXHkFSRtfxUiBstkBZ96vfx2CQhTyLaqpe5GfMmA1hErkoXqTH3oon0DBiBFdnAvMW8_pCkqu43PAedilYtUxxIyHg16vuU&pub=4a1b367933fd867b19b072952f68dceb",
+                "payloadBlobURN": "cp8:ffx:32",
+                "windowTitle": "Field Application Engineer - Oregon, USA job - LMI Technologies - Oregon | Indeed.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:30",
+                "payloadBlobURN": "cp8:ffx:32",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 63,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "540c89b0653e77f4a45d99f00ed8e12a2ebc0b07"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "END",
+        "sequenceNumber": 64,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Re: Job hunting",
+                "BodyBlobURN": "cp8:eml:31",
+                "EmailID": "c0dd4ab2beb8595bc6d959ba5b2cd645182c7793"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 65,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:33",
+                "EmailID": "a2644a173079c50a521bdfbd31f7f734b3fabfdc"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 66,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/GeneralSearch.aspx?searchin=HCDMNOS&searchstring=ST+314,,,"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 67,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:33",
+                "EmailID": "a2644a173079c50a521bdfbd31f7f734b3fabfdc"
+            },
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:34",
+                "EmailID": "c9a54e5f1a5138910b265affb92d287f3a2ab673"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 68,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 69,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 70,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 71,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/GeneralSearch.aspx?entity=Course&searchin=HCDMNOS&searchstring=ST+314,,,"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 72,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 73,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:34",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 74,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:34",
+                "EmailID": "c9a54e5f1a5138910b265affb92d287f3a2ab673"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "START",
+        "sequenceNumber": 75,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:35",
+                "EmailID": "6e85e256e14306c899281c2dde5ce6d70551aabc"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 76,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.telegraph.co.uk/travel/destinations/europe/turkey/istanbul/articles/is-istanbul-safe-for-tourists-travel-advice/"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 77,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:35",
+                "EmailID": "6e85e256e14306c899281c2dde5ce6d70551aabc"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "cd2b5e95d92ab3f45592c219e214319206d91d4d"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 78,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.telegraph.co.uk/travel/destinations/europe/turkey/istanbul/articles/is-istanbul-safe-for-tourists-travel-advice/",
+                "payloadBlobURN": "cp8:ffx:38",
+                "windowTitle": "Is Istanbul safe for tourists? - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:38",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 79,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.gov.uk/foreign-travel-advice/bulgaria/terrorism"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 80,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.gov.uk/foreign-travel-advice/bulgaria/terrorism",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "Bulgaria travel advice - GOV.UK - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 81,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=is+it+safe+to+travel+to+instanbul&ie=utf-8&oe=utf-8#q=is+it+safe+to+travel+to+sofia"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 82,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.gov.uk/foreign-travel-advice/macedonia/terrorism"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 83,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.gov.uk/foreign-travel-advice/macedonia/terrorism",
+                "payloadBlobURN": "cp8:ffx:40",
+                "windowTitle": "Macedonia travel advice - GOV.UK - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:40",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 84,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/country/albania.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 85,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://travel.state.gov/content/passports/en/country/albania.html",
+                "payloadBlobURN": "cp8:ffx:41",
+                "windowTitle": "Albania - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:36",
+                "payloadBlobURN": "cp8:ffx:41",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 86,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "cd2b5e95d92ab3f45592c219e214319206d91d4d"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "END",
+        "sequenceNumber": 87,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Re: travel planning",
+                "BodyBlobURN": "cp8:eml:37",
+                "EmailID": "ff76a3efdc44751e7e0ece1ddb7d2fd47879f664"
+            }
+        }
+    }
+]

@@ -1,0 +1,78 @@
+[
+    {
+     "urn" : "cp8:ffx:2",
+     "data" : "https://corvallis.craigslist.org/apa/5748045905.html"
+    },
+    {
+     "urn" : "cp8:ffx:3",
+     "data" : "https://corvallis.craigslist.org/apa/5772420484.html"
+    },
+    {
+     "urn" : "cp8:ffx:10",
+     "data" : "http://allrecipes.com/recipe/14064/easy-guacamole/?internalSource=staff%20pick&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%203"
+    },
+    {
+     "urn" : "cp8:ffx:11",
+     "data" : "Version:0.9\r\nStartHTML:00000259\r\nEndHTML:00000395\r\nStartFragment:00000293\r\nEndFragment:00000359\r\nSourceURL:http://allrecipes.com/recipe/14064/easy-guacamole/?internalSource=staff%20pick&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%203\r\n<html><body>\r\n<!--StartFragment--><h1 class=\\"recipe-summary__h1\\" itemprop=\\"name\\">Easy Guacamole</h1><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:12",
+     "data" : "http://allrecipes.com/recipe/26740/chocolate-chip-cheese-ball/?internalSource=hub%20recipe&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%2014"
+    },
+    {
+     "urn" : "cp8:ffx:13",
+     "data" : "http://allrecipes.com/recipe/20548/ceils-cucumber-slices/?internalSource=recipe%20hub&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%2053"
+    },
+    {
+     "urn" : "cp8:ffx:16",
+     "data" : "https://www.amazon.com/Engineering-Economic-Analysis-Donald-Newnan/dp/0199339279/ref=sr_1_1?ie=UTF8&qid=1473542432&sr=8-1&keywords=9780199339273"
+    },
+    {
+     "urn" : "cp8:ffx:17",
+     "data" : "https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468/ref=sr_1_1?ie=UTF8&qid=1473542552&sr=8-1&keywords=%2C+Linux+Kernel+Development+3%2Fe"
+    },
+    {
+     "urn" : "cp8:ffx:21",
+     "data" : "https://www.rottentomatoes.com/tv/vikings_2013/"
+    },
+    {
+     "urn" : "cp8:ffx:22",
+     "data" : "http://www.tv.com/shows/vikings/"
+    },
+    {
+     "urn" : "cp8:ffx:25",
+     "data" : "https://www.amazon.com/dp/B01GJPPBQW?ref_=ams_ad_dp_asin_2"
+    },
+    {
+     "urn" : "cp8:ffx:29",
+     "data" : "https://www.drugs.com/adderall.html"
+    },
+    {
+     "urn" : "cp8:ffx:30",
+     "data" : "https://www.drugs.com/valium.html"
+    },
+    {
+     "urn" : "cp8:ffx:31",
+     "data" : "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+    },
+    {
+     "urn" : "cp8:ffx:35",
+     "data" : "http://jobs.intel.com/ShowJob/Id/930693/Software%20Engineer"
+    },
+    {
+     "urn" : "cp8:ffx:36",
+     "data" : "https://jobs-standard.icims.com/jobs/15184/software-engineer-i/job?mode=job&iis=Indeed&iisn=Indeed.com&aasi=2&mobile=false&width=670&height=500&bga=true&needsRedirect=false&jan1offset=-480&jun1offset=-420"
+    },
+    {
+     "urn" : "cp8:ffx:39",
+     "data" : "Version:0.9\r\nStartHTML:00000189\r\nEndHTML:00000264\r\nStartFragment:00000223\r\nEndFragment:00000228\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314\r\n<html><body>\r\n<!--StartFragment-->20855<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:40",
+     "data" : "Version:0.9\r\nStartHTML:00000190\r\nEndHTML:00000265\r\nStartFragment:00000224\r\nEndFragment:00000229\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201\r\n<html><body>\r\n<!--StartFragment-->10050<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:41",
+     "data" : "Version:0.9\r\nStartHTML:00000189\r\nEndHTML:00000264\r\nStartFragment:00000223\r\nEndFragment:00000228\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121\r\n<html><body>\r\n<!--StartFragment-->10098<!--EndFragment-->\r\n</body>\r\n</html>"
+    }
+]

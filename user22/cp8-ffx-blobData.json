@@ -1,0 +1,82 @@
+[
+    {
+     "urn" : "cp8:ffx:3",
+     "data" : "https://corvallis.craigslist.org/apa/5796163161.html"
+    },
+    {
+     "urn" : "cp8:ffx:4",
+     "data" : "http://www.zillow.com/homes/for_rent/Corvallis-OR/condo,apartment_duplex_type/2097155966_zpid/4216_rid/44.788414,-122.958641,44.304441,-123.696785_rect/10_zm/?3col=true"
+    },
+    {
+     "urn" : "cp8:ffx:5",
+     "data" : "http://pinionproperty.com/PDF/PPMvacancy_list.pdf"
+    },
+    {
+     "urn" : "cp8:ffx:12",
+     "data" : "http://www.marthastewart.com/366244/vegetarian-appetizer-recipes#217366"
+    },
+    {
+     "urn" : "cp8:ffx:13",
+     "data" : "http://allrecipes.com/recipe/14830/hummus-iii/?internalSource=hn_carousel%2001_Hummus%20III&referringId=1697&referringContentType=recipe%20hub&referringPosition=carousel%2001"
+    },
+    {
+     "urn" : "cp8:ffx:14",
+     "data" : "http://allrecipes.com/recipe/22453/yummy-roll-ups/?internalSource=hn_carousel%2002_Yummy%20Roll%20Ups&referringId=1697&referringContentType=recipe%20hub&referringPosition=carousel%2002"
+    },
+    {
+     "urn" : "cp8:ffx:15",
+     "data" : "http://allrecipes.com/recipe/12771/grilled-shrimp-scampi/?internalSource=hn_carousel%2003_Grilled%20Shrimp%20Scampi&referringId=1697&referringContentType=recipe%20hub&referringPosition=carousel%2003"
+    },
+    {
+     "urn" : "cp8:ffx:16",
+     "data" : "http://www.foodnetwork.com/recipes/articles/50-easy-appetizer-recipes.html"
+    },
+    {
+     "urn" : "cp8:ffx:22",
+     "data" : "https://www.amazon.com/dp/B01BY6UEL8/ref=twister_B01BY6UCDS?_encoding=UTF8&psc=1"
+    },
+    {
+     "urn" : "cp8:ffx:25",
+     "data" : "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+    },
+    {
+     "urn" : "cp8:ffx:26",
+     "data" : "https://www.drugs.com/food-interactions/amphetamine-dextroamphetamine,adderall.html"
+    },
+    {
+     "urn" : "cp8:ffx:27",
+     "data" : "https://www.drugs.com/food-interactions/diazepam,valium.html"
+    },
+    {
+     "urn" : "cp8:ffx:28",
+     "data" : "https://www.drugs.com/food-interactions/diazepam,valium.html"
+    },
+    {
+     "urn" : "cp8:ffx:31",
+     "data" : "https://jobs.oregonstate.edu/postings/32211"
+    },
+    {
+     "urn" : "cp8:ffx:34",
+     "data" : "Version:0.9\r\nStartHTML:00000189\r\nEndHTML:00000264\r\nStartFragment:00000223\r\nEndFragment:00000228\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314\r\n<html><body>\r\n<!--StartFragment-->10436<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:35",
+     "data" : "Version:0.9\r\nStartHTML:00000190\r\nEndHTML:00000265\r\nStartFragment:00000224\r\nEndFragment:00000229\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201\r\n<html><body>\r\n<!--StartFragment-->10050<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:36",
+     "data" : "Version:0.9\r\nStartHTML:00000189\r\nEndHTML:00000264\r\nStartFragment:00000223\r\nEndFragment:00000228\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121\r\n<html><body>\r\n<!--StartFragment-->10094<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:37",
+     "data" : "Version:0.9\r\nStartHTML:00000191\r\nEndHTML:00000266\r\nStartFragment:00000225\r\nEndFragment:00000230\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111\r\n<html><body>\r\n<!--StartFragment-->13520<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:38",
+     "data" : "Version:0.9\r\nStartHTML:00000188\r\nEndHTML:00000263\r\nStartFragment:00000222\r\nEndFragment:00000227\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100\r\n<html><body>\r\n<!--StartFragment-->15217<!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:42",
+     "data" : "https://travel.state.gov/content/passports/en/alertswarnings/turkey-travel-warning.html"
+    }
+]

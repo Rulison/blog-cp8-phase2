@@ -1,0 +1,2420 @@
+[
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 1,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "2265b71e52c0dc885292be50f5051f4ba1adce71"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 2,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/search/apa?max_price=700"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 3,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5738704418.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 4,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5772867666.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 5,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5738704418.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 6,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5772867666.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 7,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "2265b71e52c0dc885292be50f5051f4ba1adce71"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "164dfd1de86353181addf52930e7a73a18bc501a"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 8,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://corvallis.craigslist.org/apa/5772867666.html",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "Cute one bedroom in downtown Corvallis - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 9,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5738704418.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 10,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/search/apa?max_price=700"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 11,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5745802126.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 12,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://corvallis.craigslist.org/apa/5745802126.html",
+                "payloadBlobURN": "cp8:ffx:4",
+                "windowTitle": "Studio Apt/Lease takeover - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:4",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 13,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "164dfd1de86353181addf52930e7a73a18bc501a"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 14,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:2",
+                "EmailID": "e073b5f3ea677cc2b6815be048cd4fda5796d57c"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "START",
+        "sequenceNumber": 15,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:8",
+                "EmailID": "3c63119e1d7f7f5083af4c5302a32b8bebac8143"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 16,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/76/appetizers-and-snacks/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 17,
+        "parameters": {
+            "URL": {
+                "URL": "https://allrecipes.com/account/authenticationwelcome/?loginreferrerurl=http:%2F%2Fallrecipes.com%2Frecipe%2F212896%2Fcaprese-appetizer%2F%3Fdeferred%3D%257B%2522recipeid%2522%253A%2522212896%2522%252C%2522servings%2522%253A10%252C%2522deferredActionName%2522%253A%2522AddRecipeToShoppingList%2522%257D&actionsource=recipe&testcookieredirect=1"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 18,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/212896/caprese-appetizer/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 19,
+        "parameters": {
+            "URL": {
+                "URL": "https://allrecipes.com/account/authenticationwelcome/?loginreferrerurl=http:%2F%2Fallrecipes.com%2Frecipe%2F212896%2Fcaprese-appetizer%2F%3Fdeferred%3D%257B%2522ingredientid%2522%253A10895%252C%2522recipeid%2522%253A212896%252C%2522servings%2522%253A10%252C%2522deferredActionName%2522%253A%2522AddIngredientToShoppingList%2522%257D&actionsource=recipe"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 20,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/263/everyday-cooking/vegetarian/appetizers/"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 21,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:8",
+                "EmailID": "3c63119e1d7f7f5083af4c5302a32b8bebac8143"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:9",
+                "EmailID": "822eef17cb67f1f75f2bb2b39dc061a5179fd900"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 22,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/212896/caprese-appetizer/",
+                "payloadBlobURN": "cp8:ffx:11",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:11",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 23,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/1697/healthy-recipes/gluten-free/appetizers/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 24,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=appetizer+recipes&ie=utf-8&oe=utf-8#q=gluten+free+appetizer+recipes"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 25,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/212896/caprese-appetizer/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 26,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=appetizer+recipes&ie=utf-8&oe=utf-8#q=gluten+free+appetizer+recipes"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 27,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.google.com/search?q=appetizer+recipes&ie=utf-8&oe=utf-8#q=gluten+free+appetizer+recipes",
+                "payloadBlobURN": "cp8:ffx:12",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:12",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 28,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/212896/caprese-appetizer/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 29,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.foodnetwork.com/recipes/articles/50-easy-appetizer-recipes.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 30,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/15031/veggie-delight-on-garlic-bread/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%205"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 31,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/15031/veggie-delight-on-garlic-bread/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%205",
+                "payloadBlobURN": "cp8:ffx:13",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:13",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 32,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/212896/caprese-appetizer/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 33,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.foodnetwork.com/recipes/articles/50-easy-appetizer-recipes.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 34,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/15031/veggie-delight-on-garlic-bread/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%205"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 35,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/15031/veggie-delight-on-garlic-bread/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%205",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 36,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/212896/caprese-appetizer/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 37,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/15031/veggie-delight-on-garlic-bread/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%205"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 38,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.foodnetwork.com/recipes/articles/50-easy-appetizer-recipes.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 39,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/76/appetizers-and-snacks/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 40,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/19490/my-crab-cakes/?internalSource=hub%20recipe&referringId=108&referringContentType=recipe%20hub&clickId=cardslot%2014"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 41,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/19490/my-crab-cakes/?internalSource=hub%20recipe&referringId=108&referringContentType=recipe%20hub&clickId=cardslot%2014",
+                "payloadBlobURN": "cp8:ffx:15",
+                "windowTitle": "My Crab Cakes Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:15",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 42,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/19490/my-crab-cakes/?internalSource=hub%20recipe&referringId=108&referringContentType=recipe%20hub&clickId=cardslot%2014",
+                "payloadBlobURN": "cp8:ffx:16",
+                "windowTitle": "My Crab Cakes Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:16",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 43,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/1697/healthy-recipes/gluten-free/appetizers/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 44,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/14064/easy-guacamole/?internalSource=staff%20pick&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%203"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 45,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/14064/easy-guacamole/?internalSource=staff%20pick&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%203",
+                "payloadBlobURN": "cp8:ffx:17",
+                "windowTitle": "Easy Guacamole Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:17",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 46,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/14064/easy-guacamole/?internalSource=staff%20pick&referringId=1697&referringContentType=recipe%20hub&clickId=cardslot%203",
+                "payloadBlobURN": "cp8:ffx:18",
+                "windowTitle": "Easy Guacamole Recipe - Allrecipes.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:9",
+                "payloadBlobURN": "cp8:ffx:18",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 47,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:9",
+                "EmailID": "822eef17cb67f1f75f2bb2b39dc061a5179fd900"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "END",
+        "sequenceNumber": 48,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:10",
+                "EmailID": "ef932f7654505c4af60e137f332055e4ea1c25a2"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "START",
+        "sequenceNumber": 49,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:19",
+                "EmailID": "75e8f68931df959438615128de7d064a519fd79b"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 50,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.abebooks.com/servlet/SearchResults?an=Donald+Newnan&isbn=9780199339273&sts=t&tn=Engineering+Economic+Analysis"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 51,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.gettextbooks.com/isbn/9780199339273/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 52,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468/ref=sr_1_fkmr0_1?ie=UTF8&qid=1473799837&sr=8-1-fkmr0&keywords=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN%3A+978-1-672-32946-3"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 53,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.abebooks.com/servlet/BookDetailsPL?bi=19179272461&searchurl=sts%3Dt%26sortby%3D17%26tn%3DEngineering%2BEconomic%2BAnalysis%26isbn%3D9780199339273%26an%3DDonald%2BNewnan"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 54,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.abebooks.com/servlet/FrameBase?content=%2Fservlet%2FShipRates%3Fvid=61989342"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 55,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:19",
+                "EmailID": "75e8f68931df959438615128de7d064a519fd79b"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:20",
+                "EmailID": "b20540a0fb234aba8b34463c99ee6b6b9d93daf0"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 56,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468/ref=sr_1_fkmr0_1?ie=UTF8&qid=1473799837&sr=8-1-fkmr0&keywords=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN%3A+978-1-672-32946-3",
+                "payloadBlobURN": "cp8:ffx:22",
+                "windowTitle": "Amazon.com: Linux Kernel Development (3rd Edition) (9780672329463): Robert Love: Books - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:20",
+                "payloadBlobURN": "cp8:ffx:22",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 57,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.abebooks.com/servlet/BookDetailsPL?bi=19179272461&searchurl=sts%3Dt%26sortby%3D17%26tn%3DEngineering%2BEconomic%2BAnalysis%26isbn%3D9780199339273%26an%3DDonald%2BNewnan"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 58,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468/ref=sr_1_fkmr0_1?ie=UTF8&qid=1473799837&sr=8-1-fkmr0&keywords=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN%3A+978-1-672-32946-3"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 59,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Engineering-Economic-Analysis-Donald-Newnan/dp/0199339279/ref=sr_1_fkmr0_1?ie=UTF8&qid=1473799962&sr=8-1-fkmr0&keywords=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+IBSN%3A+978-0199339273"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 60,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.textbooks.com/Engineering-Economic-Analysis--With-CD-12th-Edition/9780199339273/Donald-G-Newnan.php"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 61,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.gettextbooks.com/isbn/9780199339273/"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 62,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.gettextbooks.com/isbn/9780199339273/",
+                "payloadBlobURN": "cp8:ffx:23",
+                "windowTitle": "Engineering Economic Analysis: Donald G. Newnan, Jerome P. Lavelle, Ted G. Eschenbach: 9780199339273: Amazon.com: Books - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:20",
+                "payloadBlobURN": "cp8:ffx:23",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 63,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:20",
+                "EmailID": "b20540a0fb234aba8b34463c99ee6b6b9d93daf0"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "END",
+        "sequenceNumber": 64,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:21",
+                "EmailID": "4e812cedee651bb70fcfdc5a12980dc91e75561a"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "START",
+        "sequenceNumber": 65,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:24",
+                "EmailID": "51ac0ae57fb39b8dc3af9bf1812bca3d045d4450"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 66,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/search/title?genres=action&title_type=tv_series&sort=moviemeter,asc"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 67,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/search/title?genres=adventure&sort=moviemeter,asc&title_type=tv_series"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 68,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2193021/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 69,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=action+drama+tc+shows&ie=utf-8&oe=utf-8#q=best+action+tv+shows"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 70,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2193021/ratings?ref_=tt_ov_rt"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 71,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:24",
+                "EmailID": "51ac0ae57fb39b8dc3af9bf1812bca3d045d4450"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "550fccf627c3b3099a5521271a060262fee967ab"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 72,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.imdb.com/title/tt2193021/ratings?ref_=tt_ov_rt",
+                "payloadBlobURN": "cp8:ffx:27",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:25",
+                "payloadBlobURN": "cp8:ffx:27",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 73,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2193021/"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 74,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.imdb.com/title/tt2193021/",
+                "payloadBlobURN": "cp8:ffx:28",
+                "windowTitle": "Arrow (TV Series 2012\u2013 ) - IMDb - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:25",
+                "payloadBlobURN": "cp8:ffx:28",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 75,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2193021/ratings?ref_=tt_ov_rt"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 76,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2193021/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 77,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=action+drama+tc+shows&ie=utf-8&oe=utf-8#q=best+action+tv+shows"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 78,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.google.com/search?q=action+drama+tc+shows&ie=utf-8&oe=utf-8#q=best+action+tv+shows",
+                "payloadBlobURN": "cp8:ffx:29",
+                "windowTitle": "\"Arrow\" (2012) - User ratings - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:25",
+                "payloadBlobURN": "cp8:ffx:29",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 79,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "550fccf627c3b3099a5521271a060262fee967ab"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "END",
+        "sequenceNumber": 80,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Melisandre Lannister",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:26",
+                "EmailID": "981ab4ee37a1eb1d7b430be824ae4dcbc8e4e109"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "START",
+        "sequenceNumber": 81,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "7b27dcf7378a33994ebcb08889efe36256a29074"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 82,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Fan-Shop-Sports-Outdoors/b/ref=sv_sv_so_sando_2?ie=UTF8&node=3386071"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 83,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/s/ref=lp_10805321_nr_p_36_5?rnid=386589011&rh=n%3A3375251%2Cn%3A%212334110011%2Cn%3A%212334172011%2Cn%3A10805321&qid=1473801896&bbn=10805321&low-price=&high-price=30&x=14&y=14"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 84,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Gaiam-Print-Yoga-Pink-Sundial/dp/B011NQXQJ6/ref=sr_1_72?s=sporting-goods&ie=UTF8&qid=1473801943&sr=1-72&refinements=p_36%3A-3000"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 85,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/ACCUSPLIT-Pro-Survivor-A601XBK-Stopwatch/dp/B0007ZGZXY/ref=sr_1_17?s=outdoor-recreation&ie=UTF8&qid=1473802044&sr=1-17&refinements=p_36%3A-3000"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 86,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Zensah-Tech-Compression-Socks-Large/dp/B00FFZJEUM/ref=sr_1_41?s=outdoor-recreation&ie=UTF8&qid=1473802063&sr=1-41&refinements=p_36%3A-3000"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 87,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "7b27dcf7378a33994ebcb08889efe36256a29074"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:31",
+                "EmailID": "8015f4a922329e33e04b742136ae14140c623ac1"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 88,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/Zensah-Tech-Compression-Socks-Large/dp/B00FFZJEUM/ref=sr_1_41?s=outdoor-recreation&ie=UTF8&qid=1473802063&sr=1-41&refinements=p_36%3A-3000",
+                "payloadBlobURN": "cp8:ffx:33",
+                "windowTitle": "Amazon.com : Gaiam Print Yoga Mat, 3mm, Pink Sundial : Sports & Outdoors - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:31",
+                "payloadBlobURN": "cp8:ffx:33",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 89,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/ACCUSPLIT-Pro-Survivor-A601XBK-Stopwatch/dp/B0007ZGZXY/ref=sr_1_17?s=outdoor-recreation&ie=UTF8&qid=1473802044&sr=1-17&refinements=p_36%3A-3000"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 90,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/ACCUSPLIT-Pro-Survivor-A601XBK-Stopwatch/dp/B0007ZGZXY/ref=sr_1_17?s=outdoor-recreation&ie=UTF8&qid=1473802044&sr=1-17&refinements=p_36%3A-3000",
+                "payloadBlobURN": "cp8:ffx:34",
+                "windowTitle": "Amazon.com : ACCUSPLIT Pro Survivor - A601XBK Stopwatch, Clock, Extra Large Display (Aqua) : Coach And Referee Stopwatches : Sports & Outdoors - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:31",
+                "payloadBlobURN": "cp8:ffx:34",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 91,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Zensah-Tech-Compression-Socks-Large/dp/B00FFZJEUM/ref=sr_1_41?s=outdoor-recreation&ie=UTF8&qid=1473802063&sr=1-41&refinements=p_36%3A-3000"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 92,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/Zensah-Tech-Compression-Socks-Large/dp/B00FFZJEUM/ref=sr_1_41?s=outdoor-recreation&ie=UTF8&qid=1473802063&sr=1-41&refinements=p_36%3A-3000",
+                "payloadBlobURN": "cp8:ffx:35",
+                "windowTitle": "Amazon.com : Zensah Tech+ Compression Socks - Running Compression Socks : Sports & Outdoors - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:31",
+                "payloadBlobURN": "cp8:ffx:35",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 93,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:31",
+                "EmailID": "8015f4a922329e33e04b742136ae14140c623ac1"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "END",
+        "sequenceNumber": 94,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Melisandre Lannister",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:32",
+                "EmailID": "64a6d076638ccbc01f3b9ef9ed570537222c40f3"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "START",
+        "sequenceNumber": 95,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "4a52379e7cd7c4e836c05be587387687823ef7c6"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 96,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Adderall%2C+and+Valium&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 97,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 98,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.bluelight.org/vb/archive/index.php/t-263162.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 99,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/answers/what-are-the-side-affects-taking-adderall-with-318830.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 100,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "4a52379e7cd7c4e836c05be587387687823ef7c6"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:37",
+                "EmailID": "267a461f069d6f916b1456dbc987d9fcffd002b2"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 101,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.drugs.com/answers/what-are-the-side-affects-taking-adderall-with-318830.html",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "What are the side affects taking adderall with valum? - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:37",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 102,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Adderall%2C+and+Valium&ie=utf-8&oe=utf-8#q=Adderall+and+Valium"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 103,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 104,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.quora.com/What-is-it-like-to-take-valium-and-Adderall-together"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 105,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.quora.com/What-is-it-like-to-take-valium-and-Adderall-together",
+                "payloadBlobURN": "cp8:ffx:40",
+                "windowTitle": "What is it like to take valium and Adderall together? - Quora - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:37",
+                "payloadBlobURN": "cp8:ffx:40",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 106,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Adderall%2C+and+Valium&ie=utf-8&oe=utf-8#q=Adderall+and+Valium"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 107,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/adderall.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 108,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.drugs.com/adderall.html",
+                "payloadBlobURN": "cp8:ffx:41",
+                "windowTitle": "What is it like to take valium and Adderall together? - Quora - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:37",
+                "payloadBlobURN": "cp8:ffx:41",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 109,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.drugs.com/adderall.html",
+                "payloadBlobURN": "cp8:ffx:42",
+                "windowTitle": "Adderall: Uses, Dosage, Side Effects & Safety Info - Drugs.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:37",
+                "payloadBlobURN": "cp8:ffx:42",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 110,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.drugs.com/valium.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 111,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.drugs.com/valium.html",
+                "payloadBlobURN": "cp8:ffx:43",
+                "windowTitle": "Valium (diazepam) Uses, Dosage, Side Effects - Drugs.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:37",
+                "payloadBlobURN": "cp8:ffx:43",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 112,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:37",
+                "EmailID": "267a461f069d6f916b1456dbc987d9fcffd002b2"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "END",
+        "sequenceNumber": 113,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "Re: check on medication",
+                "BodyBlobURN": "cp8:eml:38",
+                "EmailID": "424d887734582880a1fb15e382c0454158276b08"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "START",
+        "sequenceNumber": 114,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:44",
+                "EmailID": "e9fafea83a73beedfeaca79766fc08064a97e4d8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 115,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 116,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=computer+engineering+&l=Corvallis%2C+OR"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 117,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=computer+engineering&l="
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 118,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/viewjob?jk=1bb95029eb07b193&q=computer+engineering&tk=1asitbgscbv73eqq&from=web"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 119,
+        "parameters": {
+            "URL": {
+                "URL": "https://sjobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&jobId=1330507&PartnerId=10626&SiteId=48&src=JB-11060"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 120,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:44",
+                "EmailID": "e9fafea83a73beedfeaca79766fc08064a97e4d8"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:45",
+                "EmailID": "8660e9fc8cc962ea61a65790b5d9d129a9a2851f"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 121,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://sjobs.brassring.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&jobId=1330507&PartnerId=10626&SiteId=48&src=JB-11060",
+                "payloadBlobURN": "cp8:ffx:46",
+                "windowTitle": "Software Engineer, New Grad - Job Details - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:45",
+                "payloadBlobURN": "cp8:ffx:46",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "END",
+        "sequenceNumber": 122,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:45",
+                "EmailID": "8660e9fc8cc962ea61a65790b5d9d129a9a2851f"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 123,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:47",
+                "EmailID": "2ed5183341a3ed8e6a83fd05b7a64a98c7b9a3b3"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 124,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/Default.aspx?section=Course"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 125,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/MinorDetail.aspx?id=162"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 126,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/Default.aspx?section=Course"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 127,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 128,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:47",
+                "EmailID": "2ed5183341a3ed8e6a83fd05b7a64a98c7b9a3b3"
+            },
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:48",
+                "EmailID": "7b286fcf73e97f6a6aec3676e1d3ea8efa69e7ba"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 129,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314",
+                "payloadBlobURN": "cp8:ffx:49",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:48",
+                "payloadBlobURN": "cp8:ffx:49",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 130,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 131,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201",
+                "payloadBlobURN": "cp8:ffx:50",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:48",
+                "payloadBlobURN": "cp8:ffx:50",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 132,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 133,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121",
+                "payloadBlobURN": "cp8:ffx:51",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:48",
+                "payloadBlobURN": "cp8:ffx:51",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 134,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 135,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111",
+                "payloadBlobURN": "cp8:ffx:52",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:48",
+                "payloadBlobURN": "cp8:ffx:52",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 136,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 137,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100",
+                "payloadBlobURN": "cp8:ffx:53",
+                "windowTitle": "Oregon State University Online Catalog - Course Detail - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:48",
+                "payloadBlobURN": "cp8:ffx:53",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 138,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:48",
+                "EmailID": "7b286fcf73e97f6a6aec3676e1d3ea8efa69e7ba"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "START",
+        "sequenceNumber": 139,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:54",
+                "EmailID": "3cac68fcc00abe7706ddca80f304ae8eb82bf035"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 140,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.hutshuttle.com/reservation/06/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 141,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.europcar.com/DotcarClient/step2.action"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 142,
+        "parameters": {
+            "URL": {
+                "URL": "https://nips.cc/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 143,
+        "parameters": {
+            "URL": {
+                "URL": "https://en.wikipedia.org/wiki/Turkey%E2%80%93United_States_relations"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 144,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.npr.org/2016/08/24/491170115/biden-to-try-to-smooth-u-s-relations-with-turkey"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 145,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:54",
+                "EmailID": "3cac68fcc00abe7706ddca80f304ae8eb82bf035"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:55",
+                "EmailID": "aeb2466a7939b9d336ccc5b656a3dddd8fc87bee"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 146,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.balkaninsight.com/en/article/bulgaria-pays-the-price-for-friendship-with-turkey-08-22-2016"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 147,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.balkaninsight.com/en/article/bulgaria-pays-the-price-for-friendship-with-turkey-08-22-2016",
+                "payloadBlobURN": "cp8:ffx:57",
+                "windowTitle": "Bulgaria Pays the Price for Friendship with Turkey :: Balkan Insight - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:55",
+                "payloadBlobURN": "cp8:ffx:57",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 148,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.npr.org/2016/08/24/491170115/biden-to-try-to-smooth-u-s-relations-with-turkey"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 149,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=turkey&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 150,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.aljazeera.com/news/2016/09/turkey-asks-arrest-gulen-ordering-coup-bid-160913141519446.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 151,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.aljazeera.com/news/2016/09/turkey-asks-arrest-gulen-ordering-coup-bid-160913141519446.html",
+                "payloadBlobURN": "cp8:ffx:58",
+                "windowTitle": "Turkey asks US to arrest Gulen for 'ordering' coup bid - News from Al Jazeera - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:55",
+                "payloadBlobURN": "cp8:ffx:58",
+                "windowTitle": "Inbox - Elizabeth.Eveland@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 152,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Macedonia&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 153,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Elizabeth Eveland",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:55",
+                "EmailID": "aeb2466a7939b9d336ccc5b656a3dddd8fc87bee"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "END",
+        "sequenceNumber": 154,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Elizabeth Eveland",
+                "From": "Davos Stark",
+                "Subject": "Re: travel planning",
+                "BodyBlobURN": "cp8:eml:56",
+                "EmailID": "307ad089df21fe97040bde4487b84e0166d83626"
+            }
+        }
+    }
+]

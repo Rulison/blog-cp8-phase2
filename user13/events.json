@@ -1,0 +1,2309 @@
+[
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 1,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "05c546eae3b2af2221cf0f35d5885d6afc81ffa2"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 2,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5825003486.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 3,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5824830496.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 4,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5815320320.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 5,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/search/apa?query=no+pets&max_price=700&availabilityMode=0"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 6,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5778075713.html"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 7,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:0",
+                "EmailID": "05c546eae3b2af2221cf0f35d5885d6afc81ffa2"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "6322cf00f65a9e098ef721c17f62440de4975ab4"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 8,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://corvallis.craigslist.org/apa/5778075713.html",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:3",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 9,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/search/sub?max_price=700&bedrooms=1&availabilityMode=0"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 10,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/sub/5782180117.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 11,
+        "parameters": {
+            "URL": {
+                "URL": "https://corvallis.craigslist.org/apa/5825003486.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 12,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.apartments.com/coral-heights-salem-or/hcnhw03/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 13,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.apartments.com/rockwood-park-apartments-salem-or/qqqcj8w/"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 14,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.apartments.com/coral-heights-salem-or/hcnhw03/",
+                "payloadBlobURN": "cp8:ffx:4",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:4",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 15,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.apartments.com/rockwood-park-apartments-salem-or/qqqcj8w/"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 16,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.apartments.com/rockwood-park-apartments-salem-or/qqqcj8w/",
+                "payloadBlobURN": "cp8:ffx:5",
+                "windowTitle": "Rockwood Park Apartments Rentals - Salem, OR | Apartments.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:1",
+                "payloadBlobURN": "cp8:ffx:5",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 17,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:1",
+                "EmailID": "6322cf00f65a9e098ef721c17f62440de4975ab4"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 18,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Housing... OMG!",
+                "BodyBlobURN": "cp8:eml:2",
+                "EmailID": "2e0f0e9307565faab51d7e15c254d6b92a51b53a"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "START",
+        "sequenceNumber": 19,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:10",
+                "EmailID": "911d1976b7fe577a975398b0ceb53cced6a3c76e"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 20,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.food.com/recipe/all/quick-and-easy"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 21,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.food.com/recipe/all/quick-and-easy?categories=81%2C9"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 22,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.food.com/recipe/pineapple-ham-skewers-308074"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 23,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Awesome recipes",
+                "BodyBlobURN": "cp8:eml:10",
+                "EmailID": "911d1976b7fe577a975398b0ceb53cced6a3c76e"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:11",
+                "EmailID": "9b99312fa072afe1125c23cf9cb683d01533445c"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 24,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.food.com/recipe/pineapple-ham-skewers-308074",
+                "payloadBlobURN": "cp8:ffx:13",
+                "windowTitle": "Pineapple Ham Skewers Recipe - Food.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:11",
+                "payloadBlobURN": "cp8:ffx:13",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 25,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.food.com/recipe/the-best-wings-ever-324945"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 26,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/76/appetizers-and-snacks/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 27,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/17146/appetizers-and-snacks/snacks/?internalSource=hub%20nav&referringId=76&referringContentType=recipe%20hub&linkName=hub%20nav%20daughter&clickId=hub%20nav%202"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 28,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/104/appetizers-and-snacks/cheese/?internalSource=hub%20nav&referringId=76&referringContentType=recipe%20hub&linkName=hub%20nav%20daughter&clickId=hub%20nav%202"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 29,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/15184/mouth-watering-stuffed-mushrooms/?internalSource=staff%20pick&referringId=76&referringContentType=recipe%20hub&clickId=cardslot%203"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 30,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/15184/mouth-watering-stuffed-mushrooms/?internalSource=staff%20pick&referringId=76&referringContentType=recipe%20hub&clickId=cardslot%203",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "Pineapple Ham Skewers Recipe - Food.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:11",
+                "payloadBlobURN": "cp8:ffx:14",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 31,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/229454/artichoke-hearts-gratin/?internalSource=staff%20pick&referringId=76&referringContentType=recipe%20hub&clickId=cardslot%208"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 32,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/229454/artichoke-hearts-gratin/?internalSource=staff%20pick&referringId=76&referringContentType=recipe%20hub&clickId=cardslot%208",
+                "payloadBlobURN": "cp8:ffx:15",
+                "windowTitle": "Pineapple Ham Skewers Recipe - Food.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:11",
+                "payloadBlobURN": "cp8:ffx:15",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 33,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipes/105/appetizers-and-snacks/dips-and-spreads/?internalSource=hub%20nav&referringId=76&referringContentType=recipe%20hub&linkName=hub%20nav%20daughter&clickId=hub%20nav%202"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 34,
+        "parameters": {
+            "URL": {
+                "URL": "http://allrecipes.com/recipe/23929/marys-roasted-red-pepper-dip/?internalSource=staff%20pick&referringId=105&referringContentType=recipe%20hub&clickId=cardslot%208"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 35,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://allrecipes.com/recipe/23929/marys-roasted-red-pepper-dip/?internalSource=staff%20pick&referringId=105&referringContentType=recipe%20hub&clickId=cardslot%208",
+                "payloadBlobURN": "cp8:ffx:16",
+                "windowTitle": "Pineapple Ham Skewers Recipe - Food.com - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:11",
+                "payloadBlobURN": "cp8:ffx:16",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 36,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:11",
+                "EmailID": "9b99312fa072afe1125c23cf9cb683d01533445c"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 3,
+        "workflowPosition": "END",
+        "sequenceNumber": 37,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Awesome recipes",
+                "BodyBlobURN": "cp8:eml:12",
+                "EmailID": "c4aed1995302ef89cab7512e6eca2885ca046846"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "START",
+        "sequenceNumber": 38,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:17",
+                "EmailID": "b970759a9f14f540de0daf4eca27ea1ccf936a81"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 39,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:17",
+                "EmailID": "b970759a9f14f540de0daf4eca27ea1ccf936a81"
+            },
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:18",
+                "EmailID": "f9f06f64f58529ae36074475572b50038da06d96"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 40,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.nylxs.com/docs/textbooks/Linux.Kernel.Development.3rd.Edition.pdf"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 41,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+IBSN%3A+978-0199339273&ie=utf-8&oe=utf-8#q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+ISBN:+978-0199339273&tbm=shop"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 42,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.ablesbooks.com/Engineering-Economic-Analysis-by-Donald-G-Newnan_p_178244.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 43,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.betterwordsbooks.com/Engineering-Economic-Analysis-by-Donald-G-Newnan_p_578295.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 44,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.textbookrush.com/browse/Books/9780199339273?kbid=1029&utm_source=googlebase&utm_medium=affiliate&utm_term=9780199339273&utm_campaign=localinventory&gclid=CJa5qfWa1s8CFZCCfgodYT8OGw"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 45,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.ablesbooks.com/Engineering-Economic-Analysis-by-Donald-G-Newnan_p_178244.html",
+                "payloadBlobURN": "cp8:ffx:20",
+                "windowTitle": "Engineering Economic Analysis by Donald G. Newnan - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:18",
+                "payloadBlobURN": "cp8:ffx:20",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 46,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.betterwordsbooks.com/Engineering-Economic-Analysis-by-Donald-G-Newnan_p_578295.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 47,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.ablesbooks.com/Engineering-Economic-Analysis-by-Donald-G-Newnan_p_178244.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 48,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.textbookrush.com/browse/Books/9780199339273?kbid=1029&utm_source=googlebase&utm_medium=affiliate&utm_term=9780199339273&utm_campaign=localinventory&gclid=CJa5qfWa1s8CFZCCfgodYT8OGw"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 49,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/0199339279/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0199339279&linkCode=as2&tag=austrasemina-20&linkId=WXLOIFT6GSIW6VZB"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 50,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.nylxs.com/docs/textbooks/Linux.Kernel.Development.3rd.Edition.pdf"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 51,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.nylxs.com/docs/textbooks/Linux.Kernel.Development.3rd.Edition.pdf",
+                "payloadBlobURN": "cp8:ffx:21",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:18",
+                "payloadBlobURN": "cp8:ffx:21",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 52,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN%3A+978-1-672-32946-3&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 53,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/0199339279/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0199339279&linkCode=as2&tag=austrasemina-20&linkId=WXLOIFT6GSIW6VZB"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 54,
+        "parameters": {
+            "URL": {
+                "URL": "http://site.iugaza.edu.ps/nsawalhi/files/2014/01/Engineering-Economic-Analysis-9th.pdf"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 55,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN%3A+978-1-672-32946-3&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 56,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+IBSN%3A+978-0199339273&ie=utf-8&oe=utf-8#q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+filetype:pdf"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 57,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.google.com/search?q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+IBSN%3A+978-0199339273&ie=utf-8&oe=utf-8#q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+filetype:pdf",
+                "payloadBlobURN": "cp8:ffx:22",
+                "windowTitle": "Engineering-Economic-Analysis-9th.pdf - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:18",
+                "payloadBlobURN": "cp8:ffx:22",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 58,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Robert+Love%2C+Linux+Kernel+Development+3%2Fe%2C+Addison-Wesley%2C+2010%2C+ISBN%3A+978-1-672-32946-3&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 59,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 60,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468",
+                "payloadBlobURN": "cp8:ffx:23",
+                "windowTitle": "Engineering-Economic-Analysis-9th.pdf - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:18",
+                "payloadBlobURN": "cp8:ffx:23",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 61,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+IBSN%3A+978-0199339273"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 62,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=Engineering+Economic+Analysis+by+Donald+Newnan+12th+edition+IBSN%3A+978-0199339273&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 63,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.biblio.com/book/engineering-economic-analysis-newnan-donald-g/d/914573441?aid=frg&utm_source=google&utm_medium=product&utm_campaign=feed-details&gclid=CJGl8emb1s8CFYNpfgodR8wOgQ"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 64,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.biblio.com/book/engineering-economic-analysis-newnan-donald-g/d/914573441?aid=frg&utm_source=google&utm_medium=product&utm_campaign=feed-details&gclid=CJGl8emb1s8CFYNpfgodR8wOgQ",
+                "payloadBlobURN": "cp8:ffx:24",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:18",
+                "payloadBlobURN": "cp8:ffx:24",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 65,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Myrcella Baratheon",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:18",
+                "EmailID": "f9f06f64f58529ae36074475572b50038da06d96"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 4,
+        "workflowPosition": "END",
+        "sequenceNumber": 66,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Myrcella Baratheon",
+                "Subject": "RE: Textbook help reminder!",
+                "BodyBlobURN": "cp8:eml:19",
+                "EmailID": "e0433930c3fd67afa35d666944c6c0c9e2e48679"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "START",
+        "sequenceNumber": 67,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "af379a65dc571bd9e9d4e7dd330bb22bcc9bf203"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 68,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.tastekid.com/shows/like/Game-Of-Thrones"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 69,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=marco+polo+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 70,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=black+sails+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 71,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=better+call+saul+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 72,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:25",
+                "EmailID": "af379a65dc571bd9e9d4e7dd330bb22bcc9bf203"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:26",
+                "EmailID": "c6f7ab66ebf29d43ea14c48bc7afe5cbffdd272c"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 73,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=marco+polo+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 74,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=better+call+saul+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 75,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=black+sails+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 76,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2375692/"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 77,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.imdb.com/title/tt2375692/externalreviews?ref_=tt_ov_rt"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 78,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.imdb.com/title/tt2375692/",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:26",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 79,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:26",
+                "EmailID": "c6f7ab66ebf29d43ea14c48bc7afe5cbffdd272c"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 5,
+        "workflowPosition": "END",
+        "sequenceNumber": 80,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Re: Best TV Show to Watch",
+                "BodyBlobURN": "cp8:eml:27",
+                "EmailID": "b27ded23bbc5d727c11a3bad1c3a3d4d57ddc8bc"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "START",
+        "sequenceNumber": 81,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:28",
+                "EmailID": "251ca3b0300ce1d2bfffc30e886a6d72b83d6978"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 82,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/gift-finder"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 83,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:28",
+                "EmailID": "251ca3b0300ce1d2bfffc30e886a6d72b83d6978"
+            },
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:29",
+                "EmailID": "13e4991c1b9423ef8c9adbcf473dd65067fcb1eb"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 84,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B01F49C8NI/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 85,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B0160E41GS/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 86,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B00FS37RF0/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 87,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B00LC8757K/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 88,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/JBL-Wireless-Ultra-Portable-Bluetooth-Connectivity/dp/B00HWAB3ES/ref=sr_1_2?ie=UTF8&qid=1476312670&sr=8-2&keywords=wireless%2Bspeaker%2Bpink&th=1"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 89,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/gp/product/B01F49C8NI/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1",
+                "payloadBlobURN": "cp8:ffx:31",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:29",
+                "payloadBlobURN": "cp8:ffx:31",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 90,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.blu-ray.com/movies/Black-Sails-Season-One-Blu-ray/78942/#Review"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 91,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=wireless+speaker+pink&rh=i%3Aaps%2Ck%3Awireless+speaker+pink"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 92,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=marco+polo+imdb&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 93,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.tastekid.com/shows/like/Game-Of-Thrones"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 94,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B00FS37RF0/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 95,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/gp/product/B00FS37RF0/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1",
+                "payloadBlobURN": "cp8:ffx:32",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:29",
+                "payloadBlobURN": "cp8:ffx:32",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 96,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/gp/product/B00FS37RF0/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1",
+                "payloadBlobURN": "cp8:ffx:33",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:29",
+                "payloadBlobURN": "cp8:ffx:33",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 97,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B01F49C8NI/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 98,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B0160E41GS/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 99,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/gp/product/B0160E41GS/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT?th=1",
+                "payloadBlobURN": "cp8:ffx:34",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:29",
+                "payloadBlobURN": "cp8:ffx:34",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 100,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.amazon.com/gp/product/B00LC8757K/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 101,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://www.amazon.com/gp/product/B00LC8757K/ref=cm_gf_ss_d_d_p_aA_i17_b0_p0_mg_OUTDOOR_RECREATION_PRODUCT",
+                "payloadBlobURN": "cp8:ffx:35",
+                "windowTitle": "Amazon.com : Oru Kayak Bay Kayak, White : Launchpad - Mozilla Firefox"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:29",
+                "payloadBlobURN": "cp8:ffx:35",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 102,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Melisandre Lannister",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:29",
+                "EmailID": "13e4991c1b9423ef8c9adbcf473dd65067fcb1eb"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 6,
+        "workflowPosition": "END",
+        "sequenceNumber": 103,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Melisandre Lannister",
+                "Subject": "Re: Find a Gift for Someone",
+                "BodyBlobURN": "cp8:eml:30",
+                "EmailID": "d61e35c67294124ff8ce79cae0ab8acfe6af5946"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "START",
+        "sequenceNumber": 104,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "702dc5a8db9eb0fded57cf800ef30adf6c0b41bf"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 105,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.webmd.com/interaction-checker/"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 106,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "check on medication",
+                "BodyBlobURN": "cp8:eml:36",
+                "EmailID": "702dc5a8db9eb0fded57cf800ef30adf6c0b41bf"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:37",
+                "EmailID": "b00f53f01cbc4c1c9ecfb48fb275c9ac8eddee8b"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 107,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.webmd.com/drugs/2/drug-11116/valium-oral/details"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 108,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.webmd.com/drugs/2/drug-63163/adderall-oral/details"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 109,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://www.webmd.com/drugs/2/drug-63163/adderall-oral/details",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:37",
+                "payloadBlobURN": "cp8:ffx:39",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 110,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:37",
+                "EmailID": "b00f53f01cbc4c1c9ecfb48fb275c9ac8eddee8b"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 8,
+        "workflowPosition": "END",
+        "sequenceNumber": 111,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "RE: check on medication",
+                "BodyBlobURN": "cp8:eml:38",
+                "EmailID": "7540d289b8b5a99bf8c544046f1652a82f18feb3"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "START",
+        "sequenceNumber": 112,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:40",
+                "EmailID": "6644e54cb5b99cfef68d2a8e456894d45ac92d0d"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 113,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=security+researcher&l=Corvallis%2C+OR"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 114,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.americasjobexchange.com/job-detail/job-opening-AJE-576196588?source=indeed&utm_source=Indeed&utm_medium=cpc&utm_campaign=Indeed"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 115,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=security+researcher&l=Corvallis%2C+OR"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 116,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.indeed.com/jobs?q=security+researcher&l=Corvallis,+OR&radius=100&rbc=Intel&jcid=f1374be6a45f4b8a"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 117,
+        "parameters": {
+            "URL": {
+                "URL": "http://jobs.intel.com/ShowJob/Id/814394/Security%20Researcher"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 118,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "Job hunting",
+                "BodyBlobURN": "cp8:eml:40",
+                "EmailID": "6644e54cb5b99cfef68d2a8e456894d45ac92d0d"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:41",
+                "EmailID": "2b770cb187c3288e902a97885915ff5e4fc30ec0"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 119,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://jobs.intel.com/ShowJob/Id/814394/Security%20Researcher",
+                "payloadBlobURN": "cp8:ffx:43",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:41",
+                "payloadBlobURN": "cp8:ffx:43",
+                "windowTitle": "Inbox - Charles.Chatsworth@oregonstate.edu - Outlook"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 120,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:41",
+                "EmailID": "2b770cb187c3288e902a97885915ff5e4fc30ec0"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 1,
+        "workflowTemplateInstanceId": 9,
+        "workflowPosition": "END",
+        "sequenceNumber": 121,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "RE: Job hunting",
+                "BodyBlobURN": "cp8:eml:42",
+                "EmailID": "6e310027139238c62b85d2792c46ff74f0b28887"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "START",
+        "sequenceNumber": 122,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:44",
+                "EmailID": "bff18c6e8740dde79f7b54c2d5fa0539b7f96771"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 123,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseList.aspx?subjectcode=PAC&level=undergrad&campus=corvallis"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 124,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 125,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 126,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseList.aspx?subjectcode=WR&level=undergrad&campus=corvallis"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 127,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 128,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Arya Targaryen",
+                "Subject": "Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:44",
+                "EmailID": "bff18c6e8740dde79f7b54c2d5fa0539b7f96771"
+            },
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:45",
+                "EmailID": "308fcca7543e5a236add283aa665149f16480f08"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 129,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 130,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDescription.aspx?level=undergrad"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 131,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 132,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseList.aspx?subjectcode=COMM&level=undergrad&campus=corvallis"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 133,
+        "parameters": {
+            "URL": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 134,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:45",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 1,
+        "workflowPosition": "END",
+        "sequenceNumber": 135,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Arya Targaryen",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: Create an Ideal Class Schedule",
+                "BodyBlobURN": "cp8:eml:45",
+                "EmailID": "308fcca7543e5a236add283aa665149f16480f08"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "START",
+        "sequenceNumber": 136,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:46",
+                "EmailID": "165e697f29ffcf5c1315c32f94eef91190ace168"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 137,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=bulgaria+political+climate&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 138,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=tirana+albnia+political+climate&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 139,
+        "parameters": {
+            "URL": {
+                "URL": "https://www.google.com/search?q=macedonia+political+climate&ie=utf-8&oe=utf-8"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 140,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.europeanforum.net/country/fyr_macedonia"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 141,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.bbc.com/news/world-europe-17202996"
+            }
+        }
+    },
+    {
+        "type": "Reply",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 142,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "travel planning",
+                "BodyBlobURN": "cp8:eml:46",
+                "EmailID": "165e697f29ffcf5c1315c32f94eef91190ace168"
+            },
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:47",
+                "EmailID": "4b4e4887442f822436b366162de291179d4d23a4"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 143,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/country/bulgaria.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 144,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.europeanforum.net/country/fyr_macedonia"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 145,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/country/macedonia.html"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 146,
+        "parameters": {
+            "URL": {
+                "URL": "http://www.europeanforum.net/country/albania"
+            }
+        }
+    },
+    {
+        "type": "FindInfo",
+        "app": "firefox",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 147,
+        "parameters": {
+            "URL": {
+                "URL": "https://travel.state.gov/content/passports/en/country/albania.html"
+            }
+        }
+    },
+    {
+        "type": "RecordFoundInfoToOutlook",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 148,
+        "parameters": {
+            "COPY_FROM_BROWSER": {
+                "URL": "https://travel.state.gov/content/passports/en/country/albania.html",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            },
+            "PASTE_TO_OUTLOOK": {
+                "destinationEmailBodyBlobURN": "cp8:eml:47",
+                "payloadBlobURN": "UNKNOWN",
+                "windowTitle": "UNKNOWN"
+            }
+        }
+    },
+    {
+        "type": "Send",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "MIDDLE",
+        "sequenceNumber": 149,
+        "parameters": {
+            "EMAIL_OUT": {
+                "To": "Davos Stark",
+                "From": "Charles Chatsworth",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:47",
+                "EmailID": "4b4e4887442f822436b366162de291179d4d23a4"
+            }
+        }
+    },
+    {
+        "type": "ReceiveEmail",
+        "app": "outlook",
+        "workflowTemplateId": 5,
+        "workflowTemplateInstanceId": 2,
+        "workflowPosition": "END",
+        "sequenceNumber": 150,
+        "parameters": {
+            "EMAIL_IN": {
+                "To": "Charles Chatsworth",
+                "From": "Davos Stark",
+                "Subject": "RE: travel planning",
+                "BodyBlobURN": "cp8:eml:48",
+                "EmailID": "d2e76701e4e63eee8450cb33f8b81590a3081182"
+            }
+        }
+    }
+]

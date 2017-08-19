@@ -1,0 +1,70 @@
+[
+    {
+     "urn" : "cp8:ffx:2",
+     "data" : "http://corvallis.craigslist.org/apa/5791070317.html"
+    },
+    {
+     "urn" : "cp8:ffx:3",
+     "data" : "http://corvallis.craigslist.org/apa/5796163161.html"
+    },
+    {
+     "urn" : "cp8:ffx:4",
+     "data" : "http://corvallis.craigslist.org/apa/5797113701.html"
+    },
+    {
+     "urn" : "cp8:ffx:11",
+     "data" : "http://www.halfhourmeals.com/recipe/mexican-seven-layer-dip/"
+    },
+    {
+     "urn" : "cp8:ffx:12",
+     "data" : "http://www.halfhourmeals.com/recipe/ground-beef-and-cheese-stuffed-peppers/"
+    },
+    {
+     "urn" : "cp8:ffx:13",
+     "data" : "http://www.halfhourmeals.com/recipe/pinchitos-de-pollo-spanish-chicken-kebabs/"
+    },
+    {
+     "urn" : "cp8:ffx:14",
+     "data" : "http://www.halfhourmeals.com/recipe/caramelized-peaches-with-fresh-ricotta-honey-pepper/"
+    },
+    {
+     "urn" : "cp8:ffx:18",
+     "data" : "https://www.amazon.com/gp/product/0672329468/ref=ox_sc_act_title_3?ie=UTF8&psc=1&smid=ATVPDKIKX0DER"
+    },
+    {
+     "urn" : "cp8:ffx:19",
+     "data" : "https://www.amazon.com/gp/product/0199339279/ref=ox_sc_act_title_1?ie=UTF8&psc=1&smid=ATVPDKIKX0DER"
+    },
+    {
+     "urn" : "cp8:ffx:29",
+     "data" : "Version:0.9\r\nStartHTML:00000161\r\nEndHTML:00000476\r\nStartFragment:00000195\r\nEndFragment:00000440\r\nSourceURL:https://www.drugs.com/sfx/adderall-side-effects.html\r\n<html><body>\r\n<!--StartFragment--><ul>\r\n<li>Bladder pain</li>\r\n<li>bloody or cloudy urine</li>\r\n<li>difficult, burning, or painful urination</li>\r\n<li>fast, pounding, or irregular heartbeat or pulse</li>\r\n<li>frequent urge to urinate</li>\r\n<li>lower back or side pain</li>\r\n</ul><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:30",
+     "data" : "Version:0.9\r\nStartHTML:00000159\r\nEndHTML:00000367\r\nStartFragment:00000193\r\nEndFragment:00000331\r\nSourceURL:https://www.drugs.com/sfx/valium-side-effects.html\r\n<html><body>\r\n<!--StartFragment--><ul>\r\n<li>Shakiness and unsteady walk</li>\r\n<li>unsteadiness, trembling, or other problems with muscle control or coordination</li>\r\n</ul><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:31",
+     "data" : "Version:0.9\r\nStartHTML:00000159\r\nEndHTML:00000367\r\nStartFragment:00000193\r\nEndFragment:00000331\r\nSourceURL:https://www.drugs.com/sfx/valium-side-effects.html\r\n<html><body>\r\n<!--StartFragment--><ul>\r\n<li>Shakiness and unsteady walk</li>\r\n<li>unsteadiness, trembling, or other problems with muscle control or coordination</li>\r\n</ul><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:35",
+     "data" : "https://jobs.oregonstate.edu/postings/32549"
+    },
+    {
+     "urn" : "cp8:ffx:38",
+     "data" : "Version:0.9\r\nStartHTML:00000175\r\nEndHTML:00000808\r\nStartFragment:00000209\r\nEndFragment:00000772\r\nSourceURL:https://adminfo.ucsadm.oregonstate.edu/prod/bwckgens.P_RegsGetCrse\r\n<html><body>\r\n<!--StartFragment--><table class=\\"datadisplaytable\\" summary=\\"This layout table is used to present the sections found\\" width=\\"100%\\"><tbody><tr><td class=\\"dddefault\\"><p class=\\"centeraligntext\\"></p></td>\r\n<td class=\\"dddefault\\"><a href=\\"https://adminfo.ucsadm.oregonstate.edu/prod/bwckschd.p_disp_listcrse?term_in=201701&amp;subj_in=ST&amp;crse_in=314&amp;crn_in=20856\\" onmouseover=\\"window.status='Detail';  return true\\" onfocus=\\"window.status='Detail';  return true\\" onmouseout=\\"window.status='';  return true\\" onblur=\\"window.status='';  return true\\">20856</a></td></tr></tbody></table><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:39",
+     "data" : "Version:0.9\r\nStartHTML:00000175\r\nEndHTML:00000579\r\nStartFragment:00000209\r\nEndFragment:00000543\r\nSourceURL:https://adminfo.ucsadm.oregonstate.edu/prod/bwckgens.P_RegsGetCrse\r\n<html><body>\r\n<!--StartFragment--><a href=\\"https://adminfo.ucsadm.oregonstate.edu/prod/bwckschd.p_disp_listcrse?term_in=201701&amp;subj_in=PAC&amp;crse_in=201&amp;crn_in=17945\\" onmouseover=\\"window.status='Detail';  return true\\" onfocus=\\"window.status='Detail';  return true\\" onmouseout=\\"window.status='';  return true\\" onblur=\\"window.status='';  return true\\">17945</a><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:40",
+     "data" : "Version:0.9\r\nStartHTML:00000189\r\nEndHTML:00000574\r\nStartFragment:00000223\r\nEndFragment:00000538\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121\r\n<html><body>\r\n<!--StartFragment--><table rules=\\"all\\" id=\\"ctl00_ContentPlaceHolder1_SOCListUC1_gvOfferings\\" style=\\"background-color:White;font-size:10pt;border-collapse:collapse;\\" border=\\"1\\" cellspacing=\\"0\\"><tbody><tr style=\\"font-size:X-Small;white-space:nowrap;\\" align=\\"center\\" valign=\\"top\\"><td align=\\"right\\"></td><td>10094</td></tr></tbody></table><!--EndFragment-->\r\n</body>\r\n</html>"
+    },
+    {
+     "urn" : "cp8:ffx:44",
+     "data" : "Version:0.9\r\nStartHTML:00000156\r\nEndHTML:00000240\r\nStartFragment:00000190\r\nEndFragment:00000204\r\nSourceURL:https://www.gov.uk/foreign-travel-advice/turkey\r\n<html><body>\r\n<!--StartFragment-->Kurdish groups<!--EndFragment-->\r\n</body>\r\n</html>"
+    }
+]

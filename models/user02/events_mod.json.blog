@@ -1,0 +1,756 @@
+type WorkflowType; distinct WorkflowType WT[2];
+
+type WorkflowSlot; distinct WorkflowSlot WS[5];
+type Action;
+distinct Action RecordFoundInfoToWord, RecordFoundInfoToOutlook, DocumentSaveWord, Send, DocumentEditWord, Reply, ReceiveEmail, AttachFile, FindInfo, Invalid, Start;
+
+type Position;
+distinct Position UNSTARTED, START, MIDDLE, END, Invalid_Position;
+random Integer instanceTable(WorkflowSlot ws, WorkflowType w, Timestep t) ~ 
+	if t == @0 & get_workflow_type(t) == w then 1
+	else if t == @0 then 0
+	else if currentSlot(t) == ws & get_workflow_type(t) == w & position(t) == START then max(instanceTable(ws, w, prev(t)) for WorkflowSlot ws) + 1
+	else instanceTable(ws, w, prev(t));
+
+random Integer instanceId(Timestep t) ~ 
+	instanceTable(currentSlot(t), cur_wf_type(t), t)
+;
+
+random WorkflowSlot currentSlot(Timestep t) ~
+	UniformChoice({ws for WorkflowSlot ws})
+;
+
+random WorkflowType get_workflow_type(Timestep t) ~
+	get_workflow_type_table(t, currentSlot(t))
+;
+
+random WorkflowType get_workflow_type_table(Timestep t, WorkflowSlot ws) ~
+	if t == @0 then UniformChoice(wt for WorkflowType wt)
+	else if position(prev(t), ws) == END then UniformChoice(wt for WorkflowType wt)
+	else if get_workflow_type_table(prev(t), ws)
+;
+
+random Timestep last_occurrence(Timestep t, WorkflowSlot ws) ~
+	if t == @0 then @0
+else if currentSlot(t) == ws then t
+else last_occurrence(prev(t), ws)
+;
+
+random Position position(Timestep t) ~
+	position(t, currentSlot(t))
+;
+
+random Position position_table(Timestep t, WorkflowSlot ws) ~ 
+	if t == @0 & ws == currentSlot(@0) then START
+	else if t == @0 then UNSTARTED
+	else if ws != currentSlot(t) then position(prev(t), ws)
+	else if position(prev(t), ws) == UNSTARTED then START
+	else if position(prev(t), ws) == START then MIDDLE
+	else if position(prev(t), ws) == MIDDLE then
+		if get_workflow_type(t) == WT[0] then
+			if state(t) == Send then
+				Categorical({MIDDLE -> 0.763358778626, END -> 0.236641221374})
+			else if state(t) == ReceiveEmail then
+				Categorical({MIDDLE -> 0.0131578947368, END -> 0.986842105263})
+			else Categorical({MIDDLE -> 0.99, END -> 0.01})
+		else if get_workflow_type(t) == WT[1] then
+			if state(t) == Send then
+				Categorical({MIDDLE -> 0.540540540541, END -> 0.459459459459})
+			else if state(t) == ReceiveEmail then
+				Categorical({MIDDLE -> 0.0, END -> 1.0})
+			else Categorical({MIDDLE -> 0.99, END -> 0.01})
+		else Invalid_Position
+	else
+		START
+;
+random Action state_table(Timestep t, WorkflowSlot ws) ~
+	if t == @0 & currentSlot(t) == ws then ReceiveEmail
+	else if t == @0 then Invalid
+	else if ws != currentSlot(t)
+		then state_table(prev(t), ws)
+	else if get_workflow_type(t) == WT[0] then
+		if state_table(prev(t), ws) == ReceiveEmail then
+				Categorical({Reply -> 0.0992366412214, FindInfo -> 0.900763358779, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == RecordFoundInfoToOutlook then
+				Categorical({Send -> 0.387900355872, RecordFoundInfoToOutlook -> 0.0747330960854, FindInfo -> 0.537366548043, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == FindInfo then
+				Categorical({ReceiveEmail -> 0.00348027842227, Send -> 0.0255220417633, Reply -> 0.136890951276, RecordFoundInfoToOutlook -> 0.207656612529, FindInfo -> 0.626450116009, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == Send then
+				Categorical({ReceiveEmail -> 0.97, FindInfo -> 0.03, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == Reply then
+				Categorical({FindInfo -> 0.381679389313, RecordFoundInfoToOutlook -> 0.618320610687, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else Invalid
+	else if get_workflow_type(t) == WT[1] then
+		if state_table(prev(t), ws) == RecordFoundInfoToWord then
+				Categorical({DocumentSaveWord -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == RecordFoundInfoToOutlook then
+				Categorical({Send -> 0.311111111111, FindInfo -> 0.577777777778, RecordFoundInfoToOutlook -> 0.111111111111, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == DocumentSaveWord then
+				Categorical({Reply -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == Send then
+				Categorical({ReceiveEmail -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == DocumentEditWord then
+				Categorical({FindInfo -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == Reply then
+				Categorical({RecordFoundInfoToOutlook -> 0.27027027027, AttachFile -> 0.027027027027, FindInfo -> 0.702702702703, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01})
+		else if state_table(prev(t), ws) == ReceiveEmail then
+				Categorical({DocumentEditWord -> 0.027027027027, Reply -> 0.189189189189, FindInfo -> 0.783783783784, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == AttachFile then
+				Categorical({Send -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == FindInfo then
+				Categorical({FindInfo -> 0.619718309859, Send -> 0.0281690140845, Reply -> 0.102112676056, RecordFoundInfoToWord -> 0.00352112676056, RecordFoundInfoToOutlook -> 0.246478873239, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else Invalid
+	else Invalid
+;
+random Action state(Timestep t) ~
+	state_table(t, currentSlot(t))
+;
+
+random Boolean valid(Timestep t) ~ 
+	if t == @0 then true
+	if position(t, currentSlot(t)) == START then true
+	else if get_type(currentSlot(t)) == WT[0] then
+		if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == ReceiveEmail then
+			if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == RecordFoundInfoToOutlook then
+			if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == FindInfo then
+			if state(t) == ReceiveEmail & EMAIL_IN_To_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Send then
+			if state(t) == ReceiveEmail & EMAIL_IN_To_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Reply then
+			if state(t) == FindInfo & true
+				then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else false
+		else false
+	else if get_type(currentSlot(t)) == WT[1] then
+		if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == RecordFoundInfoToWord then
+			if state(t) == DocumentSaveWord & FILE_BEFORE_obs(t) == FILE_BEFORE_obs(prev(t)) & FILE_BEFORE_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == RecordFoundInfoToOutlook then
+			if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == DocumentSaveWord then
+			if state(t) == Reply & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Send then
+			if state(t) == ReceiveEmail & EMAIL_IN_To_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == DocumentEditWord then
+			if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Reply then
+			if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else if state(t) == AttachFile & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & FILE_obs(t) == FILE_AFTER_obs(prev(t)) & FILE_AFTER_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == ReceiveEmail then
+			if state(t) == DocumentEditWord & true
+				then true
+			else if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == AttachFile then
+			if state(t) == Send & ATTACHMENT_OUT_obs(t) == ATTACHMENT_OUT_obs(prev(t)) & ATTACHMENT_OUT_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == FindInfo then
+			if state(t) == FindInfo & true
+				then true
+			else if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == RecordFoundInfoToWord & true
+				then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else false
+		else false
+;
+
+random String EMAIL_IN_To_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_IN_To_obs_table(prev(t), ws)
+	else
+		if t == @0 then "Charles Chatsworth"
+		else if t == @3 then "Charles Chatsworth"
+		else if t == @6 then "Charles Chatsworth"
+		else if t == @7 then "Charles Chatsworth"
+		else if t == @11 then "Charles Chatsworth"
+		else if t == @20 then "Charles Chatsworth"
+		else if t == @21 then "Charles Chatsworth"
+		else if t == @23 then "Charles Chatsworth"
+		else if t == @27 then "Charles Chatsworth"
+		else if t == @28 then "Charles Chatsworth"
+		else if t == @30 then "Charles Chatsworth"
+		else if t == @34 then "Charles Chatsworth"
+		else if t == @35 then "Charles Chatsworth"
+		else if t == @40 then "Charles Chatsworth"
+		else if t == @45 then "Charles Chatsworth"
+		else if t == @46 then "Charles Chatsworth"
+		else if t == @49 then "Charles Chatsworth"
+		else if t == @51 then "Charles Chatsworth"
+		else if t == @56 then "Charles Chatsworth"
+		else if t == @57 then "Charles Chatsworth"
+		else if t == @60 then "Charles Chatsworth"
+		else if t == @63 then "Charles Chatsworth"
+		else if t == @64 then "Charles Chatsworth"
+		else if t == @66 then "Charles Chatsworth"
+		else if t == @74 then "Charles Chatsworth"
+		else if t == @76 then "Charles Chatsworth"
+		else if t == @86 then "Charles Chatsworth"
+		else EMAIL_IN_To_obs(prev(t));
+random String EMAIL_IN_To_obs(Timestep t) ~
+	EMAIL_IN_To_obs_table(t, currentSlot(t))
+;
+
+random String PASTE_TO_OUTLOOK_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then PASTE_TO_OUTLOOK_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @4 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:1', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:3'}"
+		else if t == @12 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:7', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:9'}"
+		else if t == @17 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:7', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:10'}"
+		else if t == @24 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:12', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:14'}"
+		else if t == @25 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:12', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:15'}"
+		else if t == @31 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:17', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:19'}"
+		else if t == @41 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:21', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:24'}"
+		else if t == @47 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:23', u'windowTitle': u'UNKNOWN', u'payloadBlobURN': u'UNKNOWN'}"
+		else if t == @52 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:26', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:28'}"
+		else if t == @61 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:30', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:32'}"
+		else if t == @72 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:34', u'windowTitle': u'UNKNOWN', u'payloadBlobURN': u'UNKNOWN'}"
+		else if t == @77 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:36', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:38'}"
+		else if t == @79 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:36', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:39'}"
+		else if t == @82 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:36', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:40'}"
+		else if t == @84 then "{u'destinationEmailBodyBlobURN': u'cp8:eml:36', u'windowTitle': u'Inbox - Charles.Chatsworth@oregonstate.edu - Outlook', u'payloadBlobURN': u'cp8:ffx:41'}"
+		else PASTE_TO_OUTLOOK_obs(prev(t));
+random String PASTE_TO_OUTLOOK_obs(Timestep t) ~
+	PASTE_TO_OUTLOOK_obs_table(t, currentSlot(t))
+;
+
+random String FILE_AFTER_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then FILE_AFTER_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else FILE_AFTER_obs(prev(t));
+random String FILE_AFTER_obs(Timestep t) ~
+	FILE_AFTER_obs_table(t, currentSlot(t))
+;
+
+random String FILE_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then FILE_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else FILE_obs(prev(t));
+random String FILE_obs(Timestep t) ~
+	FILE_obs_table(t, currentSlot(t))
+;
+
+random String URL_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then URL_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @1 then "{u'URL': u'https://corvallis.craigslist.org/'}"
+		else if t == @2 then "{u'URL': u'https://corvallis.craigslist.org/apa/5791094160.html'}"
+		else if t == @8 then "{u'URL': u'http://www.huffingtonpost.com/2013/10/21/jello-shrimp-frosting-photos-reddit_n_4124713.html'}"
+		else if t == @9 then "{u'URL': u'https://www.reddit.com/r/food/comments/1nemai/my_grandmas_jello_recipe_from_the_1950s/'}"
+		else if t == @10 then "{u'URL': u'http://imgur.com/wJv6wGQ'}"
+		else if t == @13 then "{u'URL': u'https://www.reddit.com/r/food/comments/1nemai/my_grandmas_jello_recipe_from_the_1950s/'}"
+		else if t == @14 then "{u'URL': u'http://www.huffingtonpost.com/2013/10/21/jello-shrimp-frosting-photos-reddit_n_4124713.html'}"
+		else if t == @15 then "{u'URL': u'https://www.google.com/search?q=worst+recipes+ever&ie=utf-8&oe=utf-8'}"
+		else if t == @16 then "{u'URL': u'http://allrecipes.com/recipe/12463/apple-crisp-iii/'}"
+		else if t == @18 then "{u'URL': u'http://www.mytaste.com/t/worst-on-allrecipes.html'}"
+		else if t == @22 then "{u'URL': u'https://www.chegg.com/cheap-textbooks'}"
+		else if t == @29 then "{u'URL': u'http://www.imdb.com/find?ref_=nv_sr_fn&q=shrek&s=all'}"
+		else if t == @32 then "{u'URL': u'http://www.imdb.com/find?ref_=nv_sr_fn&q=shrek&s=all'}"
+		else if t == @36 then "{u'URL': u'https://www.google.com/search?q=pink+harambe&ie=utf-8&oe=utf-8'}"
+		else if t == @37 then "{u'URL': u'https://www.google.com/search?q=pink+harambe&source=lnms&tbm=isch&sa=X&ved=0ahUKEwigmJrigaHPAhUK02MKHXXlADAQ_AUICSgC&biw=626&bih=890'}"
+		else if t == @38 then "{u'URL': u'https://www.google.com/search?q=pink+harambe&ie=utf-8&oe=utf-8#q=shirt+printing'}"
+		else if t == @39 then "{u'URL': u'https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ'}"
+		else if t == @43 then "{u'URL': u'https://www.google.com/search?q=pink+harambe&source=lnms&tbm=isch&sa=X&ved=0ahUKEwigmJrigaHPAhUK02MKHXXlADAQ_AUICSgC&biw=626&bih=890'}"
+		else if t == @44 then "{u'URL': u'https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ'}"
+		else if t == @50 then "{u'URL': u'https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html'}"
+		else if t == @53 then "{u'URL': u'https://www.drugs.com/answers/what-are-the-side-affects-taking-adderall-with-318830.html'}"
+		else if t == @54 then "{u'URL': u'https://www.quora.com/What-is-it-like-to-take-valium-and-Adderall-together'}"
+		else if t == @58 then "{u'URL': u'http://www.indeed.com/jobs?q=computer+engineering&l=Corvallis%2C+OR'}"
+		else if t == @59 then "{u'URL': u'http://www.indeed.com/viewjob?jk=9f78fa99849eee11&q=computer+engineering&l=Corvallis%2C+OR&tk=1at6v1oh1b9bjeuu&from=web&advn=3165350209737823&sjdu=6R86uWk5S25yjXHkFSRtfxUiBstkBZ96vfx2CQhTyLaqpe5GfMmA1hErkoXqTH3oon0DBiBFdnAvMW8_pCkqu43PAedilYtUxxIyHg16vuU&pub=4a1b367933fd867b19b072952f68dceb'}"
+		else if t == @65 then "{u'URL': u'http://catalog.oregonstate.edu/GeneralSearch.aspx?searchin=HCDMNOS&searchstring=ST+314,,,'}"
+		else if t == @67 then "{u'URL': u'http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=PAC&coursenumber=201'}"
+		else if t == @68 then "{u'URL': u'http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=WR&coursenumber=121'}"
+		else if t == @69 then "{u'URL': u'http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=COMM&coursenumber=111'}"
+		else if t == @70 then "{u'URL': u'http://catalog.oregonstate.edu/GeneralSearch.aspx?entity=Course&searchin=HCDMNOS&searchstring=ST+314,,,'}"
+		else if t == @71 then "{u'URL': u'http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100'}"
+		else if t == @75 then "{u'URL': u'http://www.telegraph.co.uk/travel/destinations/europe/turkey/istanbul/articles/is-istanbul-safe-for-tourists-travel-advice/'}"
+		else if t == @78 then "{u'URL': u'https://www.gov.uk/foreign-travel-advice/bulgaria/terrorism'}"
+		else if t == @80 then "{u'URL': u'https://www.google.com/search?q=is+it+safe+to+travel+to+instanbul&ie=utf-8&oe=utf-8#q=is+it+safe+to+travel+to+sofia'}"
+		else if t == @81 then "{u'URL': u'https://www.gov.uk/foreign-travel-advice/macedonia/terrorism'}"
+		else if t == @83 then "{u'URL': u'https://travel.state.gov/content/passports/en/country/albania.html'}"
+		else URL_obs(prev(t));
+random String URL_obs(Timestep t) ~
+	URL_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_IN_BodyBlobURN_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_IN_BodyBlobURN_obs_table(prev(t), ws)
+	else
+		if t == @0 then "cp8:eml:0"
+		else if t == @3 then "cp8:eml:0"
+		else if t == @6 then "cp8:eml:2"
+		else if t == @7 then "cp8:eml:6"
+		else if t == @11 then "cp8:eml:6"
+		else if t == @20 then "cp8:eml:8"
+		else if t == @21 then "cp8:eml:11"
+		else if t == @23 then "cp8:eml:11"
+		else if t == @27 then "cp8:eml:13"
+		else if t == @28 then "cp8:eml:16"
+		else if t == @30 then "cp8:eml:16"
+		else if t == @34 then "cp8:eml:18"
+		else if t == @35 then "cp8:eml:20"
+		else if t == @40 then "cp8:eml:20"
+		else if t == @45 then "cp8:eml:22"
+		else if t == @46 then "cp8:eml:22"
+		else if t == @49 then "cp8:eml:25"
+		else if t == @51 then "cp8:eml:25"
+		else if t == @56 then "cp8:eml:27"
+		else if t == @57 then "cp8:eml:29"
+		else if t == @60 then "cp8:eml:29"
+		else if t == @63 then "cp8:eml:31"
+		else if t == @64 then "cp8:eml:33"
+		else if t == @66 then "cp8:eml:33"
+		else if t == @74 then "cp8:eml:35"
+		else if t == @76 then "cp8:eml:35"
+		else if t == @86 then "cp8:eml:37"
+		else EMAIL_IN_BodyBlobURN_obs(prev(t));
+random String EMAIL_IN_BodyBlobURN_obs(Timestep t) ~
+	EMAIL_IN_BodyBlobURN_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_IN_Subject_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_IN_Subject_obs_table(prev(t), ws)
+	else
+		if t == @0 then "Housing... OMG!"
+		else if t == @3 then "Housing... OMG!"
+		else if t == @6 then "RE: Housing... OMG!"
+		else if t == @7 then "Awesome recipes"
+		else if t == @11 then "Awesome recipes"
+		else if t == @20 then "RE: Awesome recipes"
+		else if t == @21 then "Textbook help reminder!"
+		else if t == @23 then "Textbook help reminder!"
+		else if t == @27 then "RE: Textbook help reminder!"
+		else if t == @28 then "Best TV Show to Watch"
+		else if t == @30 then "Best TV Show to Watch"
+		else if t == @34 then "RE: Best TV Show to Watch"
+		else if t == @35 then "Find a Gift for Someone"
+		else if t == @40 then "Find a Gift for Someone"
+		else if t == @45 then "RE: Find a Gift for Someone"
+		else if t == @46 then "RE: Find a Gift for Someone"
+		else if t == @49 then "check on medication"
+		else if t == @51 then "check on medication"
+		else if t == @56 then "Re: check on medication"
+		else if t == @57 then "Job hunting"
+		else if t == @60 then "Job hunting"
+		else if t == @63 then "Re: Job hunting"
+		else if t == @64 then "Create an Ideal Class Schedule"
+		else if t == @66 then "Create an Ideal Class Schedule"
+		else if t == @74 then "travel planning"
+		else if t == @76 then "travel planning"
+		else if t == @86 then "Re: travel planning"
+		else EMAIL_IN_Subject_obs(prev(t));
+random String EMAIL_IN_Subject_obs(Timestep t) ~
+	EMAIL_IN_Subject_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_OUT_From_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_OUT_From_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @3 then "Charles Chatsworth"
+		else if t == @5 then "Charles Chatsworth"
+		else if t == @11 then "Charles Chatsworth"
+		else if t == @19 then "Charles Chatsworth"
+		else if t == @23 then "Charles Chatsworth"
+		else if t == @26 then "Charles Chatsworth"
+		else if t == @30 then "Charles Chatsworth"
+		else if t == @33 then "Charles Chatsworth"
+		else if t == @40 then "Charles Chatsworth"
+		else if t == @42 then "Charles Chatsworth"
+		else if t == @46 then "Charles Chatsworth"
+		else if t == @48 then "Charles Chatsworth"
+		else if t == @51 then "Charles Chatsworth"
+		else if t == @55 then "Charles Chatsworth"
+		else if t == @60 then "Charles Chatsworth"
+		else if t == @62 then "Charles Chatsworth"
+		else if t == @66 then "Charles Chatsworth"
+		else if t == @73 then "Charles Chatsworth"
+		else if t == @76 then "Charles Chatsworth"
+		else if t == @85 then "Charles Chatsworth"
+		else EMAIL_OUT_From_obs(prev(t));
+random String EMAIL_OUT_From_obs(Timestep t) ~
+	EMAIL_OUT_From_obs_table(t, currentSlot(t))
+;
+
+random String ATTACHMENT_OUT_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then ATTACHMENT_OUT_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else ATTACHMENT_OUT_obs(prev(t));
+random String ATTACHMENT_OUT_obs(Timestep t) ~
+	ATTACHMENT_OUT_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_IN_From_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_IN_From_obs_table(prev(t), ws)
+	else
+		if t == @0 then "Myrcella Baratheon"
+		else if t == @3 then "Myrcella Baratheon"
+		else if t == @6 then "Myrcella Baratheon"
+		else if t == @7 then "Myrcella Baratheon"
+		else if t == @11 then "Myrcella Baratheon"
+		else if t == @20 then "Myrcella Baratheon"
+		else if t == @21 then "Myrcella Baratheon"
+		else if t == @23 then "Myrcella Baratheon"
+		else if t == @27 then "Myrcella Baratheon"
+		else if t == @28 then "Melisandre Lannister"
+		else if t == @30 then "Melisandre Lannister"
+		else if t == @34 then "Melisandre Lannister"
+		else if t == @35 then "Melisandre Lannister"
+		else if t == @40 then "Melisandre Lannister"
+		else if t == @45 then "Melisandre Lannister"
+		else if t == @46 then "Melisandre Lannister"
+		else if t == @49 then "Davos Stark"
+		else if t == @51 then "Davos Stark"
+		else if t == @56 then "Davos Stark"
+		else if t == @57 then "Davos Stark"
+		else if t == @60 then "Davos Stark"
+		else if t == @63 then "Davos Stark"
+		else if t == @64 then "Arya Targaryen"
+		else if t == @66 then "Arya Targaryen"
+		else if t == @74 then "Davos Stark"
+		else if t == @76 then "Davos Stark"
+		else if t == @86 then "Davos Stark"
+		else EMAIL_IN_From_obs(prev(t));
+random String EMAIL_IN_From_obs(Timestep t) ~
+	EMAIL_IN_From_obs_table(t, currentSlot(t))
+;
+
+random String PASTE_TO_WORD_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then PASTE_TO_WORD_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else PASTE_TO_WORD_obs(prev(t));
+random String PASTE_TO_WORD_obs(Timestep t) ~
+	PASTE_TO_WORD_obs_table(t, currentSlot(t))
+;
+
+random String COPY_FROM_BROWSER_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then COPY_FROM_BROWSER_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @4 then "{u'URL': u'https://corvallis.craigslist.org/apa/5791094160.html', u'windowTitle': u'???Single Studio - AVAILABLE NOW or RESERVE for FALL TERM~~~ - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:3'}"
+		else if t == @12 then "{u'URL': u'http://imgur.com/wJv6wGQ', u'windowTitle': u'UNKNOWN', u'payloadBlobURN': u'cp8:ffx:9'}"
+		else if t == @17 then "{u'URL': u'http://allrecipes.com/recipe/12463/apple-crisp-iii/', u'windowTitle': u'Apple Crisp III Recipe - Allrecipes.com - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:10'}"
+		else if t == @24 then "{u'URL': u'https://www.chegg.com/cheap-textbooks', u'windowTitle': u'UNKNOWN', u'payloadBlobURN': u'cp8:ffx:14'}"
+		else if t == @25 then "{u'URL': u'https://www.chegg.com/cheap-textbooks', u'windowTitle': u'UNKNOWN', u'payloadBlobURN': u'cp8:ffx:15'}"
+		else if t == @31 then "{u'URL': u'http://www.imdb.com/find?ref_=nv_sr_fn&q=shrek&s=all', u'windowTitle': u'Shrek (2001) - IMDb - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:19'}"
+		else if t == @41 then "{u'URL': u'https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ', u'windowTitle': u'Harambe Day Care Watching Kids since 2016 T-Shirt - TeeShirtPalace - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:24'}"
+		else if t == @47 then "{u'URL': u'https://www.teeshirtpalace.com/products/harambe-day-care-watching-kids-since-2016-t-shirt?gclid=CPXW-pWCoc8CFQpofgodhRsPlQ', u'windowTitle': u'Harambe Day Care Watching Kids since 2016 T-Shirt - TeeShirtPalace - Mozilla Firefox', u'payloadBlobURN': u'UNKNOWN'}"
+		else if t == @52 then "{u'URL': u'https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html', u'windowTitle': u'Adderall and Valium Drug Interactions - Drugs.com - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:28'}"
+		else if t == @61 then "{u'URL': u'http://www.indeed.com/viewjob?jk=9f78fa99849eee11&q=computer+engineering&l=Corvallis%2C+OR&tk=1at6v1oh1b9bjeuu&from=web&advn=3165350209737823&sjdu=6R86uWk5S25yjXHkFSRtfxUiBstkBZ96vfx2CQhTyLaqpe5GfMmA1hErkoXqTH3oon0DBiBFdnAvMW8_pCkqu43PAedilYtUxxIyHg16vuU&pub=4a1b367933fd867b19b072952f68dceb', u'windowTitle': u'Field Application Engineer - Oregon, USA job - LMI Technologies - Oregon | Indeed.com - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:32'}"
+		else if t == @72 then "{u'URL': u'http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=H&coursenumber=100', u'windowTitle': u'Oregon State University Online Catalog - Course Detail - Mozilla Firefox', u'payloadBlobURN': u'UNKNOWN'}"
+		else if t == @77 then "{u'URL': u'http://www.telegraph.co.uk/travel/destinations/europe/turkey/istanbul/articles/is-istanbul-safe-for-tourists-travel-advice/', u'windowTitle': u'Is Istanbul safe for tourists? - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:38'}"
+		else if t == @79 then "{u'URL': u'https://www.gov.uk/foreign-travel-advice/bulgaria/terrorism', u'windowTitle': u'Bulgaria travel advice - GOV.UK - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:39'}"
+		else if t == @82 then "{u'URL': u'https://www.gov.uk/foreign-travel-advice/macedonia/terrorism', u'windowTitle': u'Macedonia travel advice - GOV.UK - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:40'}"
+		else if t == @84 then "{u'URL': u'https://travel.state.gov/content/passports/en/country/albania.html', u'windowTitle': u'Albania - Mozilla Firefox', u'payloadBlobURN': u'cp8:ffx:41'}"
+		else COPY_FROM_BROWSER_obs(prev(t));
+random String COPY_FROM_BROWSER_obs(Timestep t) ~
+	COPY_FROM_BROWSER_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_OUT_EmailID_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_OUT_EmailID_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @3 then "56bb34723b3df6e32771a8363621baef0e6efc8a"
+		else if t == @5 then "56bb34723b3df6e32771a8363621baef0e6efc8a"
+		else if t == @11 then "d02c05cbc7766e1dc9183bc3b9af13bde41c4194"
+		else if t == @19 then "d02c05cbc7766e1dc9183bc3b9af13bde41c4194"
+		else if t == @23 then "0c6dcf10ca8f02ecd3485b5a740dc5ad8ff017f6"
+		else if t == @26 then "0c6dcf10ca8f02ecd3485b5a740dc5ad8ff017f6"
+		else if t == @30 then "f6d9480d16a06a589c48b74993f28b42313287f5"
+		else if t == @33 then "f6d9480d16a06a589c48b74993f28b42313287f5"
+		else if t == @40 then "87ae49f31d5b9431c2c1489162ec5134a2006720"
+		else if t == @42 then "87ae49f31d5b9431c2c1489162ec5134a2006720"
+		else if t == @46 then "1ba95e581c0f902ff3b1eca2eb41f3f7cbba530c"
+		else if t == @48 then "1ba95e581c0f902ff3b1eca2eb41f3f7cbba530c"
+		else if t == @51 then "2f1ef72089679e7c2f6e31febe3ac9a09868a83c"
+		else if t == @55 then "2f1ef72089679e7c2f6e31febe3ac9a09868a83c"
+		else if t == @60 then "540c89b0653e77f4a45d99f00ed8e12a2ebc0b07"
+		else if t == @62 then "540c89b0653e77f4a45d99f00ed8e12a2ebc0b07"
+		else if t == @66 then "c9a54e5f1a5138910b265affb92d287f3a2ab673"
+		else if t == @73 then "c9a54e5f1a5138910b265affb92d287f3a2ab673"
+		else if t == @76 then "cd2b5e95d92ab3f45592c219e214319206d91d4d"
+		else if t == @85 then "cd2b5e95d92ab3f45592c219e214319206d91d4d"
+		else EMAIL_OUT_EmailID_obs(prev(t));
+random String EMAIL_OUT_EmailID_obs(Timestep t) ~
+	EMAIL_OUT_EmailID_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_OUT_Subject_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_OUT_Subject_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @3 then "RE: Housing... OMG!"
+		else if t == @5 then "RE: Housing... OMG!"
+		else if t == @11 then "RE: Awesome recipes"
+		else if t == @19 then "RE: Awesome recipes"
+		else if t == @23 then "RE: Textbook help reminder!"
+		else if t == @26 then "RE: Textbook help reminder!"
+		else if t == @30 then "RE: Best TV Show to Watch"
+		else if t == @33 then "RE: Best TV Show to Watch"
+		else if t == @40 then "RE: Find a Gift for Someone"
+		else if t == @42 then "RE: Find a Gift for Someone"
+		else if t == @46 then "RE: Find a Gift for Someone"
+		else if t == @48 then "RE: Find a Gift for Someone"
+		else if t == @51 then "RE: check on medication"
+		else if t == @55 then "RE: check on medication"
+		else if t == @60 then "RE: Job hunting"
+		else if t == @62 then "RE: Job hunting"
+		else if t == @66 then "RE: Create an Ideal Class Schedule"
+		else if t == @73 then "RE: Create an Ideal Class Schedule"
+		else if t == @76 then "RE: travel planning"
+		else if t == @85 then "RE: travel planning"
+		else EMAIL_OUT_Subject_obs(prev(t));
+random String EMAIL_OUT_Subject_obs(Timestep t) ~
+	EMAIL_OUT_Subject_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_OUT_BodyBlobURN_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_OUT_BodyBlobURN_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @3 then "cp8:eml:1"
+		else if t == @5 then "cp8:eml:1"
+		else if t == @11 then "cp8:eml:7"
+		else if t == @19 then "cp8:eml:7"
+		else if t == @23 then "cp8:eml:12"
+		else if t == @26 then "cp8:eml:12"
+		else if t == @30 then "cp8:eml:17"
+		else if t == @33 then "cp8:eml:17"
+		else if t == @40 then "cp8:eml:21"
+		else if t == @42 then "cp8:eml:21"
+		else if t == @46 then "cp8:eml:23"
+		else if t == @48 then "cp8:eml:23"
+		else if t == @51 then "cp8:eml:26"
+		else if t == @55 then "cp8:eml:26"
+		else if t == @60 then "cp8:eml:30"
+		else if t == @62 then "cp8:eml:30"
+		else if t == @66 then "cp8:eml:34"
+		else if t == @73 then "cp8:eml:34"
+		else if t == @76 then "cp8:eml:36"
+		else if t == @85 then "cp8:eml:36"
+		else EMAIL_OUT_BodyBlobURN_obs(prev(t));
+random String EMAIL_OUT_BodyBlobURN_obs(Timestep t) ~
+	EMAIL_OUT_BodyBlobURN_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_IN_EmailID_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_IN_EmailID_obs_table(prev(t), ws)
+	else
+		if t == @0 then "cdf937975d7c44d23f50cf16f69f8d7d3a1f9393"
+		else if t == @3 then "cdf937975d7c44d23f50cf16f69f8d7d3a1f9393"
+		else if t == @6 then "05c429162a0fbd2b0fe85c4c2c1b517f6b91f657"
+		else if t == @7 then "4924d21017258c11de169b163be81a2b1604b724"
+		else if t == @11 then "4924d21017258c11de169b163be81a2b1604b724"
+		else if t == @20 then "f2ee105317f09c69f5c1d6bdd90a560ff6609886"
+		else if t == @21 then "3818f9a04a04a89af4300237dd62b98dc87ef7d8"
+		else if t == @23 then "3818f9a04a04a89af4300237dd62b98dc87ef7d8"
+		else if t == @27 then "3c646cfafd92ce38232a36a1f0827fbf0b99d059"
+		else if t == @28 then "07f9c73d42c164a0ce63a01a74b773bdabd3dae0"
+		else if t == @30 then "07f9c73d42c164a0ce63a01a74b773bdabd3dae0"
+		else if t == @34 then "caea17c40e32f6579d26abfd065ed4e822236011"
+		else if t == @35 then "8ce9cc09a23a543415635644b9c52f2d838cd0f1"
+		else if t == @40 then "8ce9cc09a23a543415635644b9c52f2d838cd0f1"
+		else if t == @45 then "fc541ea62c854903721bce7ed3ea065a967cb68a"
+		else if t == @46 then "fc541ea62c854903721bce7ed3ea065a967cb68a"
+		else if t == @49 then "751e8a6b7f75519009df4a78c4230bb89933e064"
+		else if t == @51 then "751e8a6b7f75519009df4a78c4230bb89933e064"
+		else if t == @56 then "e5124a841a4f00b94315fd85cbd0e4addc28b06a"
+		else if t == @57 then "735fef7f84125eb0e9c3b1be53203e691fac1a3f"
+		else if t == @60 then "735fef7f84125eb0e9c3b1be53203e691fac1a3f"
+		else if t == @63 then "c0dd4ab2beb8595bc6d959ba5b2cd645182c7793"
+		else if t == @64 then "a2644a173079c50a521bdfbd31f7f734b3fabfdc"
+		else if t == @66 then "a2644a173079c50a521bdfbd31f7f734b3fabfdc"
+		else if t == @74 then "6e85e256e14306c899281c2dde5ce6d70551aabc"
+		else if t == @76 then "6e85e256e14306c899281c2dde5ce6d70551aabc"
+		else if t == @86 then "ff76a3efdc44751e7e0ece1ddb7d2fd47879f664"
+		else EMAIL_IN_EmailID_obs(prev(t));
+random String EMAIL_IN_EmailID_obs(Timestep t) ~
+	EMAIL_IN_EmailID_obs_table(t, currentSlot(t))
+;
+
+random String FILE_BEFORE_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then FILE_BEFORE_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else FILE_BEFORE_obs(prev(t));
+random String FILE_BEFORE_obs(Timestep t) ~
+	FILE_BEFORE_obs_table(t, currentSlot(t))
+;
+
+random String EMAIL_OUT_To_obs_table(Timestep t, WorkflowSlot ws) ~
+	if ws != currentSlot(t) then EMAIL_OUT_To_obs_table(prev(t), ws)
+	else
+		if t == @0 then "null0"
+		else if t == @3 then "Myrcella Baratheon"
+		else if t == @5 then "Myrcella Baratheon"
+		else if t == @11 then "Myrcella Baratheon"
+		else if t == @19 then "Myrcella Baratheon"
+		else if t == @23 then "Myrcella Baratheon"
+		else if t == @26 then "Myrcella Baratheon"
+		else if t == @30 then "Melisandre Lannister"
+		else if t == @33 then "Melisandre Lannister"
+		else if t == @40 then "Melisandre Lannister"
+		else if t == @42 then "Melisandre Lannister"
+		else if t == @46 then "Melisandre Lannister"
+		else if t == @48 then "Melisandre Lannister"
+		else if t == @51 then "Davos Stark"
+		else if t == @55 then "Davos Stark"
+		else if t == @60 then "Davos Stark"
+		else if t == @62 then "Davos Stark"
+		else if t == @66 then "Arya Targaryen"
+		else if t == @73 then "Arya Targaryen"
+		else if t == @76 then "Davos Stark"
+		else if t == @85 then "Davos Stark"
+		else EMAIL_OUT_To_obs(prev(t));
+random String EMAIL_OUT_To_obs(Timestep t) ~
+	EMAIL_OUT_To_obs_table(t, currentSlot(t))
+;
+
+
+obs state(@0) = ReceiveEmail;
+obs state(@1) = FindInfo;
+obs state(@2) = FindInfo;
+obs state(@3) = Reply;
+obs state(@4) = RecordFoundInfoToOutlook;
+obs state(@5) = Send;
+obs state(@6) = ReceiveEmail;
+obs state(@7) = ReceiveEmail;
+obs state(@8) = FindInfo;
+obs state(@9) = FindInfo;
+obs state(@10) = FindInfo;
+obs state(@11) = Reply;
+obs state(@12) = RecordFoundInfoToOutlook;
+obs state(@13) = FindInfo;
+obs state(@14) = FindInfo;
+obs state(@15) = FindInfo;
+obs state(@16) = FindInfo;
+obs state(@17) = RecordFoundInfoToOutlook;
+obs state(@18) = FindInfo;
+obs state(@19) = Send;
+obs state(@20) = ReceiveEmail;
+obs state(@21) = ReceiveEmail;
+obs state(@22) = FindInfo;
+obs state(@23) = Reply;
+obs state(@24) = RecordFoundInfoToOutlook;
+obs state(@25) = RecordFoundInfoToOutlook;
+obs state(@26) = Send;
+obs state(@27) = ReceiveEmail;
+obs state(@28) = ReceiveEmail;
+obs state(@29) = FindInfo;
+obs state(@30) = Reply;
+obs state(@31) = RecordFoundInfoToOutlook;
+obs state(@32) = FindInfo;
+obs state(@33) = Send;
+obs state(@34) = ReceiveEmail;
+obs state(@35) = ReceiveEmail;
+obs state(@36) = FindInfo;
+obs state(@37) = FindInfo;
+obs state(@38) = FindInfo;
+obs state(@39) = FindInfo;
+obs state(@40) = Reply;
+obs state(@41) = RecordFoundInfoToOutlook;
+obs state(@42) = Send;
+obs state(@43) = FindInfo;
+obs state(@44) = FindInfo;
+obs state(@45) = ReceiveEmail;
+obs state(@46) = Reply;
+obs state(@47) = RecordFoundInfoToOutlook;
+obs state(@48) = Send;
+obs state(@49) = ReceiveEmail;
+obs state(@50) = FindInfo;
+obs state(@51) = Reply;
+obs state(@52) = RecordFoundInfoToOutlook;
+obs state(@53) = FindInfo;
+obs state(@54) = FindInfo;
+obs state(@55) = Send;
+obs state(@56) = ReceiveEmail;
+obs state(@57) = ReceiveEmail;
+obs state(@58) = FindInfo;
+obs state(@59) = FindInfo;
+obs state(@60) = Reply;
+obs state(@61) = RecordFoundInfoToOutlook;
+obs state(@62) = Send;
+obs state(@63) = ReceiveEmail;
+obs state(@64) = ReceiveEmail;
+obs state(@65) = FindInfo;
+obs state(@66) = Reply;
+obs state(@67) = FindInfo;
+obs state(@68) = FindInfo;
+obs state(@69) = FindInfo;
+obs state(@70) = FindInfo;
+obs state(@71) = FindInfo;
+obs state(@72) = RecordFoundInfoToOutlook;
+obs state(@73) = Send;
+obs state(@74) = ReceiveEmail;
+obs state(@75) = FindInfo;
+obs state(@76) = Reply;
+obs state(@77) = RecordFoundInfoToOutlook;
+obs state(@78) = FindInfo;
+obs state(@79) = RecordFoundInfoToOutlook;
+obs state(@80) = FindInfo;
+obs state(@81) = FindInfo;
+obs state(@82) = RecordFoundInfoToOutlook;
+obs state(@83) = FindInfo;
+obs state(@84) = RecordFoundInfoToOutlook;
+obs state(@85) = Send;
+obs state(@86) = ReceiveEmail;

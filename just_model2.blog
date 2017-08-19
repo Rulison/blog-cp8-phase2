@@ -1,0 +1,210 @@
+type WorkflowType; distinct WorkflowType WT[2];
+
+type WorkflowSlot; distinct WorkflowSlot WS[5];
+type Action;
+distinct Action RecordFoundInfoToWord, RecordFoundInfoToOutlook, DocumentSaveWord, Send, DocumentEditWord, Reply, ReceiveEmail, AttachFile, FindInfo, Invalid, Start;
+
+type Position;
+distinct Position UNSTARTED, START, MIDDLE, END, Invalid_Position;
+random Integer instanceTable(WorkflowSlot ws, WorkflowType w, Timestep t) ~ 
+	if t == @0 & get_workflow_type(t) == w then 1
+	else if t == @0 then 0
+	else if currentSlot(t) == ws & get_workflow_type(t) == w & position(t) == START then max(instanceTable(ws, w, prev(t)) for WorkflowSlot ws) + 1
+	else instanceTable(ws, w, prev(t));
+
+random Integer instanceId(Timestep t) ~ 
+	instanceTable(currentSlot(t), cur_wf_type(t), t)
+;
+
+random WorkflowSlot currentSlot(Timestep t) ~
+	UniformChoice({ws for WorkflowSlot ws})
+;
+
+random WorkflowType get_workflow_type(Timestep t) ~
+	get_workflow_type_table(t, currentSlot(t))
+;
+
+random WorkflowType get_workflow_type_table(Timestep t, WorkflowSlot ws) ~
+	if t == @0 then UniformChoice(wt for WorkflowType wt)
+	else if position(prev(t), ws) == END then UniformChoice(wt for WorkflowType wt)
+	else if get_workflow_type_table(prev(t), ws)
+;
+
+random Timestep last_occurrence(Timestep t, WorkflowSlot ws) ~
+	if t == @0 then @0
+else if currentSlot(t) == ws then t
+else last_occurrence(prev(t), ws)
+;
+
+random Position position(Timestep t) ~
+	position(t, currentSlot(t))
+;
+
+random Position position_table(Timestep t, WorkflowSlot ws) ~ 
+	if t == @0 & ws == currentSlot(@0) then START
+	else if t == @0 then UNSTARTED
+	else if ws != currentSlot(t) then position(prev(t), ws)
+	else if position(prev(t), ws) == UNSTARTED then START
+	else if position(prev(t), ws) == START then MIDDLE
+	else if position(prev(t), ws) == MIDDLE then
+		if get_workflow_type(t) == WT[0] then
+			if state(t) == Send then
+				Categorical({MIDDLE -> 0.763358778626, END -> 0.236641221374})
+			else if state(t) == ReceiveEmail then
+				Categorical({MIDDLE -> 0.0131578947368, END -> 0.986842105263})
+			else Categorical({MIDDLE -> 0.99, END -> 0.01})
+		else if get_workflow_type(t) == WT[1] then
+			if state(t) == Send then
+				Categorical({MIDDLE -> 0.540540540541, END -> 0.459459459459})
+			else if state(t) == ReceiveEmail then
+				Categorical({MIDDLE -> 0.0, END -> 1.0})
+			else Categorical({MIDDLE -> 0.99, END -> 0.01})
+		else Invalid_Position
+	else
+		START
+;
+random Action state_table(Timestep t, WorkflowSlot ws) ~
+	if t == @0 & currentSlot(t) == ws then ReceiveEmail
+	else if t == @0 then Invalid
+	else if ws != currentSlot(t)
+		then state_table(prev(t), ws)
+	else if get_workflow_type(t) == WT[0] then
+		if state_table(prev(t), ws) == ReceiveEmail then
+				Categorical({Reply -> 0.0992366412214, FindInfo -> 0.900763358779, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == RecordFoundInfoToOutlook then
+				Categorical({Send -> 0.387900355872, RecordFoundInfoToOutlook -> 0.0747330960854, FindInfo -> 0.537366548043, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == FindInfo then
+				Categorical({ReceiveEmail -> 0.00348027842227, Send -> 0.0255220417633, Reply -> 0.136890951276, RecordFoundInfoToOutlook -> 0.207656612529, FindInfo -> 0.626450116009, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == Send then
+				Categorical({ReceiveEmail -> 0.97, FindInfo -> 0.03, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == Reply then
+				Categorical({FindInfo -> 0.381679389313, RecordFoundInfoToOutlook -> 0.618320610687, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else Invalid
+	else if get_workflow_type(t) == WT[1] then
+		if state_table(prev(t), ws) == RecordFoundInfoToWord then
+				Categorical({DocumentSaveWord -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == RecordFoundInfoToOutlook then
+				Categorical({Send -> 0.311111111111, FindInfo -> 0.577777777778, RecordFoundInfoToOutlook -> 0.111111111111, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == DocumentSaveWord then
+				Categorical({Reply -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == Send then
+				Categorical({ReceiveEmail -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == DocumentEditWord then
+				Categorical({FindInfo -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == Reply then
+				Categorical({RecordFoundInfoToOutlook -> 0.27027027027, AttachFile -> 0.027027027027, FindInfo -> 0.702702702703, RecordFoundInfoToWord -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01})
+		else if state_table(prev(t), ws) == ReceiveEmail then
+				Categorical({DocumentEditWord -> 0.027027027027, Reply -> 0.189189189189, FindInfo -> 0.783783783784, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, Send -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else if state_table(prev(t), ws) == AttachFile then
+				Categorical({Send -> 1.0, RecordFoundInfoToWord -> 0.01, RecordFoundInfoToOutlook -> 0.01, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, Reply -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01, FindInfo -> 0.01})
+		else if state_table(prev(t), ws) == FindInfo then
+				Categorical({FindInfo -> 0.619718309859, Send -> 0.0281690140845, Reply -> 0.102112676056, RecordFoundInfoToWord -> 0.00352112676056, RecordFoundInfoToOutlook -> 0.246478873239, DocumentSaveWord -> 0.01, DocumentEditWord -> 0.01, ReceiveEmail -> 0.01, AttachFile -> 0.01})
+		else Invalid
+	else Invalid
+;
+random Action state(Timestep t) ~
+	state_table(t, currentSlot(t))
+;
+
+random Boolean valid(Timestep t) ~ 
+	if t == @0 then true
+	if position(t, currentSlot(t)) == START then true
+	else if get_type(currentSlot(t)) == WT[0] then
+		if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == ReceiveEmail then
+			if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == RecordFoundInfoToOutlook then
+			if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == FindInfo then
+			if state(t) == ReceiveEmail & EMAIL_IN_To_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Send then
+			if state(t) == ReceiveEmail & EMAIL_IN_To_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Reply then
+			if state(t) == FindInfo & true
+				then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else false
+		else false
+	else if get_type(currentSlot(t)) == WT[1] then
+		if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == RecordFoundInfoToWord then
+			if state(t) == DocumentSaveWord & FILE_BEFORE_obs(t) == FILE_BEFORE_obs(prev(t)) & FILE_BEFORE_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == RecordFoundInfoToOutlook then
+			if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == DocumentSaveWord then
+			if state(t) == Reply & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Send then
+			if state(t) == ReceiveEmail & EMAIL_IN_To_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == DocumentEditWord then
+			if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == Reply then
+			if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else if state(t) == AttachFile & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & FILE_obs(t) == FILE_AFTER_obs(prev(t)) & FILE_AFTER_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == ReceiveEmail then
+			if state(t) == DocumentEditWord & true
+				then true
+			else if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == FindInfo & true
+				then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == AttachFile then
+			if state(t) == Send & ATTACHMENT_OUT_obs(t) == ATTACHMENT_OUT_obs(prev(t)) & ATTACHMENT_OUT_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0" 
+				 then true
+			else false
+		else if prev_state(last_occurrence(prev(t), currentSlot(t)), currentSlot(t)) == FindInfo then
+			if state(t) == FindInfo & true
+				then true
+			else if state(t) == Send & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_OUT_To_obs(t) == EMAIL_OUT_To_obs(prev(t)) & EMAIL_OUT_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_OUT_From_obs(prev(t)) & EMAIL_OUT_From_obs(prev(t)) != "null0"  & EMAIL_OUT_BodyBlobURN_obs(t) == EMAIL_OUT_BodyBlobURN_obs(prev(t)) & EMAIL_OUT_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_OUT_EmailID_obs(t) == EMAIL_OUT_EmailID_obs(prev(t)) & EMAIL_OUT_EmailID_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_Subject_obs(t) == EMAIL_OUT_Subject_obs(prev(t)) & EMAIL_OUT_Subject_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == Reply & EMAIL_OUT_To_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_From_obs(t) == EMAIL_IN_From_obs(prev(t)) & EMAIL_IN_From_obs(prev(t)) != "null0"  & EMAIL_IN_To_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_OUT_From_obs(t) == EMAIL_IN_To_obs(prev(t)) & EMAIL_IN_To_obs(prev(t)) != "null0"  & EMAIL_IN_Subject_obs(t) == EMAIL_IN_Subject_obs(prev(t)) & EMAIL_IN_Subject_obs(prev(t)) != "null0"  & EMAIL_IN_BodyBlobURN_obs(t) == EMAIL_IN_BodyBlobURN_obs(prev(t)) & EMAIL_IN_BodyBlobURN_obs(prev(t)) != "null0"  & EMAIL_IN_EmailID_obs(t) == EMAIL_IN_EmailID_obs(prev(t)) & EMAIL_IN_EmailID_obs(prev(t)) != "null0" 
+				 then true
+			else if state(t) == RecordFoundInfoToWord & true
+				then true
+			else if state(t) == RecordFoundInfoToOutlook & true
+				then true
+			else false
+		else false
+;

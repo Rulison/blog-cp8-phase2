@@ -1,0 +1,38 @@
+[
+    {
+     "urn" : "cp8:ffx:3",
+     "data" : "https://corvallis.craigslist.org/apa/5774866409.html"
+    },
+    {
+     "urn" : "cp8:ffx:10",
+     "data" : "http://allrecipes.com/recipe/14830/hummus-iii/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%202"
+    },
+    {
+     "urn" : "cp8:ffx:11",
+     "data" : "http://allrecipes.com/recipe/14814/hot-artichoke-spinach-dip/?internalSource=staff%20pick&referringId=263&referringContentType=recipe%20hub&clickId=cardslot%206"
+    },
+    {
+     "urn" : "cp8:ffx:15",
+     "data" : "https://www.amazon.com/gp/offer-listing/0199339279/ref=dp_olp_used?ie=UTF8&condition=used"
+    },
+    {
+     "urn" : "cp8:ffx:22",
+     "data" : "https://www.amazon.com/JanSport-Classic-SuperBreak-Backpack-Viking/dp/B008G3QH0K/ref=sr_1_28?s=apparel&ie=UTF8&qid=1474391523&sr=1-28&nodeID=7147440011&refinements=p_36%3A-3000&th=1"
+    },
+    {
+     "urn" : "cp8:ffx:26",
+     "data" : "https://www.drugs.com/drug-interactions/adderall-with-valium-190-1645-862-441.html"
+    },
+    {
+     "urn" : "cp8:ffx:27",
+     "data" : "http://www.addforums.com/forums/showthread.php?t=41234"
+    },
+    {
+     "urn" : "cp8:ffx:28",
+     "data" : "http://www.webmd.com/drugs/2/drug-11116/valium-oral/details/list-interaction-food"
+    },
+    {
+     "urn" : "cp8:ffx:33",
+     "data" : "Version:0.9\r\nStartHTML:00000189\r\nEndHTML:00000264\r\nStartFragment:00000223\r\nEndFragment:00000228\r\nSourceURL:http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=ST&coursenumber=314\r\n<html><body>\r\n<!--StartFragment-->20856<!--EndFragment-->\r\n</body>\r\n</html>"
+    }
+]
