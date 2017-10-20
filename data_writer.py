@@ -5,6 +5,8 @@ import os
 import re
 
 parser = argparse.ArgumentParser(description="Writes model to blog file.")
+parser.add_argument('-t', '--training_dir',
+					help="Directory containing training folders of format user\d\d")
 parser.add_argument('-o', '--output_file',
 					help="Where to write model.")
 parser.add_argument('-p', '--param_file',
@@ -39,12 +41,12 @@ actions = Set()
 def full_match(match, s):
 	return match != None and match.group(0) == s
 
-path = '.'
+path = args.training_dir
 only_dirs = [f for f in os.listdir(path) if not os.path.isfile(os.path.join(path, f))]
 
 patn = 'user\d\d'
 prog = re.compile(patn)
-training_dirs = [d for d in only_dirs if full_match(prog.match(d), d)]
+training_dirs = [os.path.join(path,d) for d in only_dirs if full_match(prog.match(d), d)]
 
 excluded_params = ['FILE_IN', 'FILE_OUT']
 dict_params = ['EMAIL_IN', 'EMAIL_OUT']
@@ -53,7 +55,7 @@ same_type_count = 0
 diff_type_count = 0
 
 for name in training_dirs:
-	file_name = os.path.join(name, 'events_mod.json')
+	file_name = os.path.join(name, 'events-mod.json')
 	events_file = open(file_name)
 	events = json.loads(events_file.read())
 	for event in events:
@@ -66,19 +68,21 @@ for name in training_dirs:
 def get_event_id(event):
 	return (event['workflowTemplateId'], event['workflowTemplateInstanceId'], event['type'], event['workflowPosition'])
 
+il_names = ['events-il-mod.json', 'events-il-low-mod.json', 'events-il-med-mod.json', 'events-il-high-mod.json']
 for name in training_dirs:
-	file_name = os.path.join(name, 'events_il_mod.json')
-	events_file = open(file_name)
-	events = json.loads(events_file.read())
-	prev_event = None
-	for event in events:
-		if prev_event is not None:
-			key = get_event_id(prev_event) + get_event_id(event)
-			if key in interleave_counts.keys():
-				interleave_counts[key] += 1
-			else:
-				interleave_counts[key] = 1
-		prev_event = event
+	for il_name in il_names:
+		file_name = os.path.join(name, il_name)
+		events_file = open(file_name)
+		events = json.loads(events_file.read())
+		prev_event = None
+		for event in events:
+			if prev_event is not None:
+				key = get_event_id(prev_event) + get_event_id(event)
+				if key in interleave_counts.keys():
+					interleave_counts[key] += 1
+				else:
+					interleave_counts[key] = 1
+			prev_event = event
 
 def prev_key_equals(k1, k2):
 	return k1[0] == k2[0] and k1[1] == k2[1] and k1[2] == k2[2] and k1[3] == k2[3]
@@ -95,7 +99,7 @@ for num in end_states.keys():
 		middle_counts[(num, s)] = 0
 
 for name in training_dirs:
-	file_name = os.path.join(name, 'events_mod.json')
+	file_name = os.path.join(name, 'events-mod.json')
 	events_file = open(file_name)
 	events = json.loads(events_file.read())
 	prev_type = None
@@ -292,9 +296,11 @@ def write_file():
 	output += 'else if coin_hack(t) < 0.6 then\n'
 	output += '\tcurrentSlot(prev(t))'
 	output += 'else if coin_hack(t) < 0.9 then\n'
-	output += '\tUniformChoice({ws for WorkflowSlot ws : position_table(prev(t), ws) == START | position_table(prev(t), ws) == MIDDLE & ws != currentSlot(prev(t)) })\n'
+	#output += '\tUniformChoice({ws for WorkflowSlot ws : position_table(prev(t), ws) == START | position_table(prev(t), ws) == MIDDLE & ws != currentSlot(prev(t)) })\n'
+	output += '\tUniformChoice({ws for WorkflowSlot ws})\n'
 	output += 'else\n'
-	output += '\tUniformChoice({ws for WorkflowSlot ws : position_table(prev(t), ws) == END | position_table(prev(t), ws) == Invalid_Position})'
+	output += '\tUniformChoice({ws for WorkflowSlot ws})\n'
+	#output += '\tUniformChoice({ws for WorkflowSlot ws : position_table(prev(t), ws) == END | position_table(prev(t), ws) == Invalid_Position})'
 	output += ';\n'
 	output += '\n'
 
