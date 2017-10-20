@@ -266,6 +266,7 @@ def write_file():
 	output += 'type Position;\n'
 	output += 'distinct Position UNSTARTED, START, MIDDLE, END, Invalid_Position;\n'
 
+	output += 'extern Boolean is_reply(String subject);'
 
 
 	output += 'random Integer instanceTable(WorkflowSlot ws, WorkflowType w, Timestep t) ~ \n'
@@ -311,7 +312,7 @@ def write_file():
 
 	output += 'random WorkflowType get_workflow_type_table(Timestep t, WorkflowSlot ws) ~\n'
 	output += '\tif t == @0 then UniformChoice({wt for WorkflowType wt})\n'
-	output += '\telse if position_table(prev(t), ws) == END then UniformChoice({wt for WorkflowType wt})\n'
+	output += '\telse if currentSlot(t) == ws & position_table(prev(t), ws) == END then UniformChoice({wt for WorkflowType wt})\n'
 	output += '\telse get_workflow_type_table(prev(t), ws)\n'
 	output += ';\n'
 	output += '\n'
@@ -325,7 +326,7 @@ def write_file():
 	output += '\tif t == @0 & ws == currentSlot(@0) then START\n'
 	output += '\telse if t == @0 then UNSTARTED\n'
 	output += '\telse if ws != currentSlot(t) then position_table(prev(t), ws)\n'
-	output += '\telse if position_table(prev(t), ws) == UNSTARTED & state(t) == ReceiveEmail then START\n'
+	output += '\telse if position_table(prev(t), ws) == UNSTARTED & state(t) == ReceiveEmail & !is_reply(EMAIL_IN_Subject_obs(t)) then START\n'
 	output += '\telse if position_table(prev(t), ws) == START then MIDDLE\n'
 	output += '\telse if position_table(prev(t), ws) == MIDDLE then\n'
 	for wf in range(max_workflow_type_id):
@@ -343,7 +344,7 @@ def write_file():
 			output += '\t\t\t\tCategorical({MIDDLE -> ' + str(middle_end_probs[key]) + ', END -> ' + str(1 - middle_end_probs[key]) + '})\n'
 		output += '\t\t\telse Categorical({MIDDLE -> 0.99, END -> 0.01})\n' # for robustness, instead of just MIDDLE
 	output += '\t\telse Invalid_Position\n'
-	output += '\telse if state(t) == ReceiveEmail then\n'
+	output += '\telse if state(t) == ReceiveEmail & !is_reply(EMAIL_IN_Subject_obs(t)) then\n'
 	output += '\t\tSTART\n'
 	output += '\telse\n'
 	output += '\t\tInvalid_Position\n'

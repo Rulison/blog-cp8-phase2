@@ -28,7 +28,7 @@ null_str = 'null0'
 
 
 def stringify(item):
-	return str(item).replace('\\', '\\\\')
+	return str(item).replace('\\', '\\\\').replace('"', '\"')
 
 def format_set(s):
 	out = ''
@@ -42,6 +42,9 @@ def format_probs(s, probs):
 		out += item[2] + ' -> ' + str(probs[item])
 		out += ', '
 	return out[:-2]
+
+def clean(s):
+	return s.replace('"', ' ').replace('\\x', '')
 
 # Taken from http://stackoverflow.com/a/600612/119527
 def mkdir_p(path):
@@ -76,7 +79,7 @@ def write_file(num_timesteps):
 	  			if added_something:
 	  				output += 'else '
 	  			added_something = True
-				output += 'if t == @' + str(i) + ' then "' + instances[i] + '"\n'
+				output += 'if t == @' + str(i) + ' then "' + clean(instances[i]) + '"\n'
 				last_value = instances[i]
 			elif i == 0:
 				added_something = True

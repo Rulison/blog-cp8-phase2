@@ -1,8 +1,8 @@
 BLOG submission for CP8 Phase 2
 
-Tested on an AWS t2.medium instance.  Minimum 2GiB memory.
+Tested on an AWS t2.medium instance.  Minimum 4GiB memory.
 
-./blog-setup.sh installs Java, Python, and a version of Blog (in Java).
+./blog-setup.sh installs g++, Python, make, armadillo, and the swift BLOG compiler.
 
 ./run-submission.sh [test files ...] translates each test file to Blog input, runs the Blog inference engine, then formats the output in the specified json format.
 
